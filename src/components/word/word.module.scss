@@ -9,15 +9,18 @@
 		"image"
 		"text";
 
+	.heading,
+	.text {
+		width: min(90%, var(--max-width));
+		margin-inline: auto;
+	}
+
 	.heading {
 		grid-area: heading;
 		font-size: 2rem;
 
 		text-align: center;
 		text-wrap: balance;
-
-		width: min(90%, var(--max-width));
-		margin-inline: auto;
 	}
 
 	.image {
@@ -29,9 +32,6 @@
 
 	.text {
 		grid-area: text;
-
-		width: min(90%, var(--max-width));
-		margin-inline: auto;
 
 		color: var(--text);
 
@@ -45,15 +45,25 @@
 	}
 
 	@include ab.screen-64 {
-		--_w: calc(100 * var(--vw));
-		--_mw: var(--max-width);
-		--_mwp: calc(90 * var(--vw));
+		--_w: calc(100 * var(--vw)); // full screen width
+		--_fixed-max-width: var(--max-width); // fixed max width
+		--_percent-max-width: calc(90 * var(--vw)); // percentage max width
 
-		--_leftp: calc((var(--_w) - var(--_mwp)) / 2);
-		--_leftf: calc((var(--_w) - var(--_mw)) / 2);
-		--_left: max(var(--_leftf), var(--_leftp));
+		--_percent-left: calc(
+			(var(--_w) - var(--_percent-max-width)) / 2
+		); // percentage margin left
+		--_fixed-left: calc(
+			(var(--_w) - var(--_fixed-max-width)) / 2
+		); // fixed margin left
+		--_left: max(var(--_fixed-left), var(--_percent-left)); // max of both
 
-		--_max-width: calc(var(--max-width) / 2);
+		--_percent-used-width: calc(
+			var(--_percent-max-width) / 2
+		); // percent used width
+		--_fixed-used-width: calc(
+			var(--_fixed-max-width) / 2
+		); // fixed used width
+		--_max-width: min(var(--_percent-used-width), var(--_fixed-used-width));
 
 		grid-template-areas:
 			".image"
