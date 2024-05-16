@@ -1,0 +1,46 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.navUpper {
+	padding-block: 1em;
+	display: none;
+
+	@include ab.screen-64 {
+		display: flex;
+		align-items: center;
+		gap: clamp(0.5em, 0.75vi, 1.5em);
+		// gap: 0.75em;
+	}
+
+	div {
+		max-width: 15rem;
+	}
+
+	.donate {
+		margin-inline-start: auto;
+		max-width: fit-content;
+
+		a {
+			--_bg: var(--accent-primary);
+
+			display: inline-block;
+			padding-inline: clamp(1em, calc(1.25 * var(--vw)), 1.5em);
+			padding-block: 0.5em;
+
+			color: var(--white);
+			font-size: clamp(0.75rem, calc(1.25 * var(--vw)), 1rem);
+			text-decoration-color: transparent;
+
+			background-color: var(--_bg);
+			border-radius: 0.75em;
+
+			&:hover,
+			&:focus-visible {
+				--_bg: var(--accent-primary-hover);
+			}
+
+			&:active {
+				--_bg: var(--accent-primary-active);
+			}
+		}
+	}
+}
