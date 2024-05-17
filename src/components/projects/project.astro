@@ -1,5 +1,6 @@
 ---
 import styles from "./project.module.scss";
+import ProjectItem from "./projectItem.astro";
 
 const projects = [
 	{
@@ -14,7 +15,7 @@ const projects = [
 	},
 	{
 		name: "OBJECTIF GLOBAL & SPECIFIQUE",
-		image: "/projects/work2.webp",
+		image: "/projects/work3.webp",
 		link: "/",
 	},
 ];
@@ -22,6 +23,20 @@ const projects = [
 
 <div class={styles.project}>
 	<div class="container">
-		<h2>En un coup d'œil</h2>
+		<h2 class={styles.heading}>En un coup d'œil</h2>
+
+		<div class={styles.container}>
+			{
+				projects.map((item) => {
+					return (
+						<ProjectItem
+							text={item.name}
+							image={item.image}
+							link={item.link}
+						/>
+					);
+				})
+			}
+		</div>
 	</div>
 </div>
