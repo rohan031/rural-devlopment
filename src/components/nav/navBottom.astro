@@ -1,5 +1,69 @@
 ---
 import styles from "./nav.module.scss";
+
+const items = [
+	{
+		text: "A Propos",
+		link: "/",
+	},
+	{
+		text: "Répertoire/Ouvrages",
+		link: "/",
+	},
+	{
+		text: "Nos Réalisations",
+		link: "/",
+	},
+	{
+		text: "Publication",
+		link: "/",
+	},
+	{
+		text: "Opportunités",
+		link: "/",
+	},
+	{
+		text: "Le Ministère",
+		link: "/",
+	},
+	{
+		text: "Contact",
+		link: "/",
+	},
+];
 ---
 
-<div>rohan</div>
+<nav class={styles.nav}>
+	<div class="container">
+		<div class={styles.container}>
+			<div class={styles.control}>
+				<input id="nav" type="checkbox" />
+				<label for="nav">
+					<span></span>
+				</label>
+
+				<a href="">faites un don aujourd'hui</a>
+			</div>
+
+			<div class={styles.items}>
+				<ul>
+					{
+						items.map(({ link, text }) => {
+							return (
+								<li>
+									<a href={link}>{text}</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+
+				<div class={styles.images}>
+					<img src="/logo.webp" />
+					<img src="/project.webp" />
+					<img src="/bank.webp" />
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
