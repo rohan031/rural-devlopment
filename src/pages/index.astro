@@ -1,8 +1,21 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Word from "@components/word/word.astro";
+import Map from "@components/map/map.astro";
+import Project from "@components/projects/project.astro";
 ---
 
 <Layout title="Prise">
-	<Word />
+	<main>
+		<Word />
+		<Project />
+		<Map />
+	</main>
 </Layout>
+
+<style>
+	main {
+		display: grid;
+		gap: 4em;
+	}
+</style>

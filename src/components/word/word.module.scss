@@ -1,7 +1,6 @@
 @use "/src/styles/abstracts/media-queries" as ab;
 
 .word {
-	border-bottom: 0.25rem solid var(--accent-secondary);
 	display: grid;
 
 	grid-template-areas:
@@ -36,8 +35,10 @@
 		color: var(--text);
 
 		.name {
+			--_mbe: 0rem;
+
 			color: var(--accent-secondary);
-			margin-block: 1.5rem 3rem;
+			margin-block: 1.5rem var(--_mbe);
 
 			font-size: 1.5rem;
 			font-weight: 600;
@@ -65,6 +66,7 @@
 		); // fixed used width
 		--_max-width: min(var(--_percent-used-width), var(--_fixed-used-width));
 
+		border-bottom: 0.25rem solid var(--accent-secondary);
 		grid-template-areas:
 			".image"
 			"heading image"
@@ -74,6 +76,12 @@
 		.text {
 			max-width: var(--_max-width);
 			margin-inline: var(--_left) 0;
+		}
+
+		.text {
+			.name {
+				--_mbe: 3rem;
+			}
 		}
 
 		.heading {
