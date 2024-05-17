@@ -1,0 +1,73 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.blog {
+	.heading {
+		text-align: center;
+		text-wrap: balance;
+
+		font-size: 2rem;
+		margin-block-end: 1.5rem;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: 2em;
+
+		.blog_item {
+			display: grid;
+			gap: 0.75em;
+			align-items: start;
+
+			img {
+				height: clamp(19rem, 25vi, 22rem);
+				width: 100%;
+				object-fit: cover;
+
+				border-radius: 0.75rem;
+			}
+
+			a {
+				color: var(--accent-secondary);
+				font-weight: 500;
+				text-decoration-color: transparent;
+
+				&:hover,
+				&:focus-visible {
+					text-decoration-color: currentColor;
+				}
+			}
+		}
+	}
+
+	.link {
+		margin-block-start: 2rem;
+		text-align: center;
+
+		a {
+			--_bg: var(--accent-primary);
+
+			background-color: var(--_bg);
+			color: var(--white);
+			display: inline-block;
+
+			text-decoration: none;
+			font-size: clamp(1rem, 2vi, 1.75rem);
+
+			padding-inline: 1.5em;
+			padding-block: 0.3em;
+
+			font-weight: 600;
+			border-radius: 0.75rem;
+
+			&:hover,
+			&:focus-visible {
+				--_bg: var(--accent-primary-hover);
+			}
+
+			&:active {
+				--_bg: var(--accent-primary-active);
+			}
+		}
+	}
+}

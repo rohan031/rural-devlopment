@@ -1,0 +1,15 @@
+---
+import styles from "./blog.module.scss";
+
+const { image, link, text, date } = Astro.props;
+---
+
+<div class={styles.blog_item}>
+	<img src={image} />
+
+	<p>{text}</p>
+
+	<p>{date}</p>
+
+	<a href={link}>Lire la suite »</a>
+</div>
