@@ -1,0 +1,87 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.opportunities {
+	--_bg: hsla(214, 88%, 34%, 0.8);
+
+	background-image: linear-gradient(var(--_bg), var(--_bg)),
+		url("../../../public/opportunities/opportunities.webp");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	background-position: center;
+
+	padding-block: 3rem;
+
+	min-height: 22rem;
+	position: relative;
+
+	> div {
+		display: grid;
+		gap: 2.5rem;
+
+		position: absolute;
+		inset: 0;
+		margin: auto;
+
+		align-content: center;
+	}
+
+	.heading {
+		color: var(--white);
+		font-size: clamp(2.5rem, 4vi, 3.75rem);
+		text-align: center;
+	}
+
+	.container {
+		--_gap: 2rem;
+
+		display: grid;
+		gap: var(--_gap);
+
+		place-items: center;
+
+		a {
+			--_bg: var(--accent-primary);
+
+			min-width: 20rem;
+
+			display: inline-block;
+			text-align: center;
+
+			color: Var(--white);
+			text-decoration: none;
+
+			background-color: var(--_bg);
+
+			font-size: clamp(1rem, 1.5vi, 1.25rem);
+
+			padding-block: 0.5em;
+
+			padding-inline: 1.5em;
+			border-radius: 0.5rem;
+
+			font-weight: 500;
+
+			&:hover,
+			&:focus-visible {
+				--_bg: var(--accent-primary-hover);
+			}
+
+			&:active {
+				--_bg: var(--accent-primary-active);
+			}
+		}
+
+		@include ab.screen-64 {
+			--_gap: 2.5rem;
+
+			display: flex;
+			justify-content: center;
+
+			a {
+				min-width: max-content;
+				width: 17.5rem;
+			}
+		}
+	}
+}

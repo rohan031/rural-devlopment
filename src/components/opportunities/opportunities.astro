@@ -1,0 +1,36 @@
+---
+import styles from "./opportunities.module.scss";
+
+const links = [
+	{
+		text: "Appel D'offre",
+		link: "/",
+	},
+	{
+		text: "Avis Apel Candidature",
+		link: "/",
+	},
+	{
+		text: "Appel A Manifestion D'interet",
+		link: "/",
+	},
+];
+---
+
+<div class={styles.opportunities}>
+	<div class="container">
+		<h2 class={styles.heading}>OPPORTUNITÉS</h2>
+
+		<div class={styles.container}>
+			{
+				links.map((item) => {
+					return (
+						<div>
+							<a href={item.link}>{item.text}</a>
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+</div>
