@@ -1,6 +1,7 @@
 ---
 import Nav from "@components/nav/nav.astro";
 import "../styles/main.scss";
+import Footer from "@components/footer/footer.astro";
 
 interface Props {
 	title: string;
@@ -30,6 +31,7 @@ const { title } = Astro.props;
 	<body>
 		<Nav />
 		<slot />
+		<Footer />
 
 		<script>
 			new ResizeObserver(() => {

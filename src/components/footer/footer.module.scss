@@ -1,0 +1,85 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.footer {
+	margin-block-end: 4rem;
+
+	img {
+		max-width: 15rem;
+		margin-inline: auto;
+		margin-block-start: 1rem;
+	}
+
+	.container {
+		display: grid;
+		gap: 1.5em;
+
+		@include ab.screen-64 {
+			grid-template-columns: 3fr 2fr;
+			align-items: start;
+		}
+
+		a {
+			color: var(--text-dark);
+			text-decoration-color: transparent;
+
+			&:hover,
+			&:focus-visible {
+				text-decoration-color: currentColor;
+			}
+		}
+
+		ul {
+			padding: 0;
+			list-style-type: none;
+			margin: 0;
+		}
+
+		.about {
+			display: grid;
+			gap: 1.5em;
+
+			> div {
+				display: grid;
+				gap: 1em;
+
+				> ul {
+					display: grid;
+					gap: 0.5em;
+				}
+			}
+
+			.address {
+				grid-area: address;
+				max-width: 27.5rem;
+			}
+			.phone {
+				grid-area: phone;
+			}
+			.email {
+				grid-area: email;
+				align-self: start;
+
+				ul {
+					margin: 0;
+				}
+			}
+
+			@include ab.screen-40 {
+				grid-template-areas:
+					"address address"
+					"phone email";
+			}
+		}
+
+		.site_map {
+			display: grid;
+			gap: 1em;
+
+			> ul {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 0.5em;
+			}
+		}
+	}
+}
