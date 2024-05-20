@@ -16,6 +16,8 @@
 			"block";
 		gap: 2em;
 
+		outline: 2px solid red;
+
 		.image {
 			grid-area: map;
 			max-height: 40rem;
@@ -110,6 +112,7 @@
 				clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 				shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 
+				width: calc(50 * var(--vw));
 				max-width: calc(50 * var(--vw));
 			}
 		}
