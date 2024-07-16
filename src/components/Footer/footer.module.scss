@@ -1,0 +1,106 @@
+@use "/src/styles/abstracts" as ab;
+
+.footer {
+	margin-block-start: auto;
+	background-color: var(--accent-secondary);
+	color: var(--white);
+
+	padding-block: 2em;
+	display: grid;
+	gap: 2em;
+
+	.copyright {
+		text-align: center;
+		font-size: clamp(0.75rem, 1vi, 0.825rem);
+	}
+
+	.container {
+		--_gap: 1.5em;
+
+		display: grid;
+		gap: var(--_gap);
+
+		grid-template-areas:
+			"map address"
+			"contact contact"
+			"sitemap sitemap";
+		grid-template-columns: 1fr 1fr;
+
+		align-items: start;
+
+		@include ab.screen-48 {
+			grid-template-areas:
+				"map address"
+				"map contact"
+				"sitemap sitemap";
+		}
+
+		@include ab.footer {
+			grid-template-columns: none;
+			grid-template-areas:
+				"map address address . . sitemap sitemap"
+				"map contact contact . . sitemap sitemap";
+		}
+
+		a,
+		p {
+			font-size: clamp(1rem, 1.25vi, 1.125rem);
+		}
+
+		> *,
+		.phone,
+		.email {
+			display: grid;
+			gap: clamp(0.75em, 1.25vi, 1em);
+		}
+
+		.map {
+			grid-area: map;
+			overflow: hidden;
+			height: 100%;
+
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+
+			@include ab.footer {
+				min-width: clamp(2.5rem, 4vi, 3.5rem);
+			}
+		}
+
+		.address {
+			grid-area: address;
+		}
+
+		.contact {
+			grid-area: contact;
+
+			gap: var(--_gap);
+			grid-template-columns: 1fr 1fr;
+
+			align-items: start;
+
+			word-break: break-all;
+
+			@include ab.footer {
+				grid-template-columns: auto auto;
+			}
+		}
+
+		.sitemap {
+			grid-area: sitemap;
+
+			.content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+
+				gap: clamp(0.5em, 1vi, 0.75em);
+
+				a {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

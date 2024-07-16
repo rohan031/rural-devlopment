@@ -1,0 +1,244 @@
+@use "./abstracts/reset";
+
+:root {
+	--max-width: 78rem;
+	--max-width-wide: 90rem;
+
+	// colors
+	--white: #ffffff;
+	--off-white: #fefefe;
+	--green: hsl(141, 100%, 27%);
+	--blue: hsl(214, 88%, 34%);
+	--black: #000000;
+	--grey: #333333;
+
+	--red: #dc0000;
+	--light-green: #22bb33;
+	--disabled: #7d7c7c;
+	--active: #191919;
+
+	// text
+	--text-dark: var(--black);
+	--text: var(--grey);
+
+	// error
+	--error: var(--red);
+	--error-hover: hsl(0, 100%, 53%);
+	--error-active: hsl(0, 100%, 33%);
+
+	// success
+	--success: var(--light-green);
+
+	// clear
+	--clear: var(--white);
+	--clear-active: hsl(26, 100%, 92%);
+	--clear-hover: hsl(26, 100%, 100%);
+
+	// accent 1
+	--accent-primary: var(--green);
+	--accent-primary-hover: hsl(141, 100%, 20%);
+	--accent-primary-active: hsl(141, 100%, 35%);
+
+	// accent 2
+	--accent-secondary: var(--blue);
+	--accent-secondary-hover: hsl(214, 88%, 24%);
+	--accent-secondary-actie: hsl(214, 88%, 44%);
+
+	accent-color: var(--accent-secondary);
+	caret-color: var(--accent-secondary);
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+
+	background-color: var(--white);
+
+	display: grid;
+	min-height: 100vb;
+}
+
+.error {
+	font-size: 0.9rem;
+	color: var(--error);
+
+	text-align: center;
+}
+
+.message {
+	font-size: 0.9rem;
+	color: var(--success);
+
+	text-align: center;
+}
+
+// button
+[data-type="button"] {
+	--_c: var(--text-dark);
+
+	border-radius: 0.25rem;
+	border: 0;
+
+	padding-inline: 1.25em;
+	padding-block: 0.4em;
+	font-weight: 600;
+
+	background-color: var(--_bg);
+	color: var(--_c);
+	transition: background-color 300ms ease;
+
+	display: inline-block;
+	font-size: clamp(1.05rem, 4.5vi, 1.35rem);
+
+	&:is(a) {
+		text-decoration-color: transparent;
+	}
+
+	&[data-variant="primary"] {
+		--_bg: var(--accent-primary);
+
+		&:hover,
+		&:focus-visible {
+			--_bg: var(--accent-primary-hover);
+		}
+
+		&:active {
+			--_bg: var(--accent-primary-active);
+		}
+	}
+
+	&[data-variant="secondary"] {
+		--_bg: var(--accent-secondary);
+
+		&:hover,
+		&:focus-visible {
+			--_bg: var(--accent-secondary-hover);
+		}
+
+		&:active {
+			--_bg: var(--accent-secondary-active);
+		}
+	}
+
+	&[data-variant="error"] {
+		--_bg: var(--error);
+		--_c: var(--white);
+
+		&:hover,
+		&:focus-visible {
+			--_bg: var(--error-hover);
+		}
+
+		&:active {
+			--_bg: var(--error-active);
+		}
+	}
+
+	&[data-variant="clear"] {
+		--_bg: var(--white);
+		--_c: var(--dark);
+
+		&:hover,
+		&:focus-visible {
+			--_bg: var(--clear-hover);
+		}
+
+		&:active {
+			--_bg: var(--clear-active);
+		}
+	}
+
+	&[data-load="true"] {
+		width: 4.65em;
+		height: 2em;
+	}
+	&:disabled {
+		cursor: not-allowed;
+
+		--_bg: var(--disabled);
+
+		&:hover,
+		&:focus-visible {
+			--_bg: var(--disabled);
+		}
+
+		&:active {
+			--_bg: var(--disabled);
+		}
+	}
+}
+
+// link
+[data-type="link"] {
+	color: var(--_c);
+	text-decoration-color: transparent;
+
+	transition: color 300ms ease, text-decoration-color 300ms ease;
+
+	&:is(button) {
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+
+		text-decoration: underline transparent;
+		cursor: pointer;
+	}
+
+	&[data-variant="primary"] {
+		--_c: var(--accent-primary);
+
+		&:hover,
+		&:focus-visible {
+			--_c: var(--accent-primary-hover);
+		}
+
+		&:active {
+			--_c: var(--accent-primary-active);
+		}
+	}
+
+	&[data-variant="secondary"] {
+		--_c: var(--accent-secondary);
+
+		&:hover,
+		&:focus-visible {
+			--_c: var(--accent-secondary-hover);
+		}
+
+		&:active {
+			--_c: var(--accent-secondary-active);
+		}
+	}
+
+	&[data-variant="error"] {
+		--_c: var(--error);
+
+		&:hover,
+		&:focus-visible {
+			--_c: var(--error-hover);
+		}
+
+		&:active {
+			--_c: var(--error-active);
+		}
+	}
+
+	&[data-active="true"] {
+		--_c: var(--accent-secondary);
+	}
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		text-decoration-color: currentColor;
+	}
+
+	&:is(button:disabled) {
+		cursor: not-allowed;
+		// text-decoration-color: transparent;
+	}
+}
+
+h3 {
+	font-size: clamp(1.125rem, 1.5vi, 1.25rem);
+}
