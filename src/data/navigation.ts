@@ -58,7 +58,7 @@ export const rootLinks = {
 	},
 	contracts: {
 		title: "Contrats",
-		link: "/publication/Contrats",
+		link: "/publication/contrats",
 	},
 	contractsForGoods: {
 		title: "Contrat Des Biens",
@@ -171,9 +171,9 @@ export const navBarLinks: NavBarLinks[] = [
 
 export const footer = [
 	rootLinks.projectOverview,
-	rootLinks.overallAndSpecificObjective,
-	rootLinks.backgroundAndRationale,
 	rootLinks.annualReports,
+	rootLinks.backgroundAndRationale,
+	rootLinks.overallAndSpecificObjective,
 	rootLinks.noticeCallForApplications,
 	rootLinks.contracts,
 	rootLinks.difficulties,
