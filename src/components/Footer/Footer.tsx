@@ -33,11 +33,10 @@ const Footer = () => {
 						<div className={styles.content}>
 							{phone.map((item) => {
 								return (
-									<div>
+									<div key={item}>
 										<a
 											data-type="link"
 											href={`tel:${item}`}
-											key={item}
 										>
 											{item}
 										</a>
@@ -53,11 +52,10 @@ const Footer = () => {
 						<div className={styles.content}>
 							{email.map((item) => {
 								return (
-									<div>
+									<div key={item}>
 										<a
 											data-type="link"
 											href={`mailto:${item}`}
-											key={item}
 										>
 											{item}
 										</a>
@@ -74,12 +72,8 @@ const Footer = () => {
 					<div className={styles.content}>
 						{footer.map(({ title, link }) => {
 							return (
-								<div>
-									<Link
-										key={`footer-${link}`}
-										href={link}
-										data-type="link"
-									>
+								<div key={`footer-${link}`}>
+									<Link href={link} data-type="link">
 										{title}
 									</Link>
 								</div>

@@ -5,7 +5,7 @@
 	--max-width-wide: 90rem;
 
 	// colors
-	--white: #ffffff;
+	--white: #fefefe;
 	--off-white: #fefefe;
 	--green: hsl(141, 100%, 27%);
 	--blue: hsl(214, 88%, 34%);
@@ -20,6 +20,7 @@
 	// text
 	--text-dark: var(--black);
 	--text: var(--grey);
+	--text-light: #4d4d4d;
 
 	// error
 	--error: var(--red);
@@ -55,7 +56,8 @@ body {
 	background-color: var(--white);
 
 	display: grid;
-	min-height: 100vb;
+	// min-height: 500vb;
+	grid-template-rows: auto 1fr auto;
 }
 
 .error {
@@ -74,13 +76,13 @@ body {
 
 // button
 [data-type="button"] {
-	--_c: var(--text-dark);
+	--_c: var(--white);
 
-	border-radius: 0.25rem;
+	border-radius: 0.75rem;
 	border: 0;
 
-	padding-inline: 1.25em;
-	padding-block: 0.4em;
+	padding-inline: 1.5em;
+	padding-block: 0.75em;
 	font-weight: 600;
 
 	background-color: var(--_bg);
@@ -88,7 +90,7 @@ body {
 	transition: background-color 300ms ease;
 
 	display: inline-block;
-	font-size: clamp(1.05rem, 4.5vi, 1.35rem);
+	// font-size: clamp(1rem, 1.5vi, 1.2s5rem);
 
 	&:is(a) {
 		text-decoration-color: transparent;

@@ -1,94 +1,51 @@
 @use "/src/styles/abstracts" as ab;
 
-.navUpper {
-	padding-block: 1em;
-	display: none;
-
-	@include ab.screen-64 {
-		display: flex;
-		align-items: center;
-		gap: clamp(0.5em, 0.75vi, 1.5em);
-		// gap: 0.75em;
-	}
-
-	div {
-		max-width: 15rem;
-	}
-
-	.donate {
-		margin-inline-start: auto;
-		max-width: fit-content;
-
-		a {
-			--_bg: var(--accent-primary);
-
-			display: inline-block;
-			padding-inline: clamp(1em, calc(1.25 * var(--vw)), 1.5em);
-			padding-block: 0.5em;
-
-			color: var(--white);
-			font-size: clamp(0.75rem, calc(1.25 * var(--vw)), 1rem);
-			text-decoration-color: transparent;
-
-			background-color: var(--_bg);
-			border-radius: 0.75em;
-
-			&:hover,
-			&:focus-visible {
-				--_bg: var(--accent-primary-hover);
-			}
-
-			&:active {
-				--_bg: var(--accent-primary-active);
-			}
-		}
-	}
-}
-
 .nav {
-	padding-block: 0.5em;
-	background-color: rgba(255, 255, 255, 0.5);
-	backdrop-filter: blur(5px);
-
 	position: sticky;
-	top: 0;
-	z-index: 10;
+	top: calc(-1 * var(--nav-upper, 0em));
+	color: var(--text);
 
-	.container {
-	}
+	.navUpper {
+		display: none;
 
-	.control {
-		display: flex;
-		justify-content: space-between;
+		padding-block: 1em;
 		align-items: center;
-		padding-block: 0.5rem;
 
-		a {
-			--_bg: var(--accent-primary);
+		gap: clamp(1em, 1.75vi, 1.5em);
 
-			display: inline-block;
-			padding-inline: clamp(1em, calc(1.25 * var(--vw)), 1.5em);
-			padding-block: 0.5em;
-
-			color: var(--white);
-			font-size: clamp(0.75rem, calc(1.25 * var(--vw)), 1rem);
-			text-decoration-color: transparent;
-
-			background-color: var(--_bg);
-			border-radius: 0.75em;
-
-			&:hover,
-			&:focus-visible {
-				--_bg: var(--accent-primary-hover);
-			}
-
-			&:active {
-				--_bg: var(--accent-primary-active);
-			}
+		@include ab.nav {
+			display: flex;
 		}
 
-		label {
-			z-index: 11;
+		img {
+			width: clamp(12.5rem, 20vi, 15rem);
+			height: auto;
+		}
+
+		.donate {
+			margin-inline-start: auto;
+
+			a {
+				font-size: clamp(1rem, 1.25vi, 1.125rem);
+			}
+		}
+	}
+
+	.navMain {
+		--_gap: 2em;
+
+		background-color: var(--white);
+		// backdrop-filter: blur(5px);
+
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+			rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+		padding-block: 1em;
+
+		.label {
+			@include ab.nav {
+				display: none;
+			}
 
 			span {
 				--_bg: var(--accent-primary);
@@ -124,93 +81,220 @@
 			}
 		}
 
-		input {
-			display: none;
-		}
-		input:checked + label {
-			span {
-				rotate: -45deg;
+		&:has(input:checked) {
+			.label {
+				span {
+					rotate: -45deg;
 
-				&::before {
-					rotate: 90deg;
-					translate: 0 -1px;
-				}
+					&::before {
+						rotate: 90deg;
+						translate: 0 -1px;
+					}
 
-				&::after {
-					opacity: 0;
+					&::after {
+						opacity: 0;
+					}
 				}
+			}
+
+			.content {
+				clip-path: inset(0);
 			}
 		}
 
-		@include ab.screen-64 {
-			display: none;
-		}
-	}
-
-	&:has(input:checked) {
-		.items {
-			clip-path: inset(0);
-		}
-	}
-
-	.items {
-		background-color: white;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: calc(100 * var(--vw));
-		height: 100vb;
-
-		clip-path: inset(0 100% 0 0);
-		transition: clip-path 300ms;
-		padding-inline: 2rem;
-		padding-block: 3rem;
-
-		@include ab.screen-64 {
-			position: static;
-			width: auto;
-			height: auto;
-			background-color: transparent;
-			clip-path: none;
-			padding: 0;
-		}
-
-		ul {
-			list-style-type: none;
-			padding: 0;
-
+		.toggle {
 			display: flex;
-			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
 			gap: 1em;
 
-			a {
-				font-weight: 600;
-				color: var(--text);
-
-				text-decoration-color: transparent;
-
-				&:hover {
-					text-decoration-color: currentColor;
-				}
+			@include ab.nav {
+				display: none;
 			}
 
-			@include ab.screen-64 {
-				flex-direction: row;
-				justify-content: center;
-				gap: 2rem;
+			input {
+				display: none;
 			}
 		}
 
-		.images {
-			display: grid;
-			gap: 2em;
+		.content {
+			--_pb: 4em;
 
-			img {
-				max-width: 15rem;
+			background-color: var(--white);
+
+			position: fixed;
+			inset: 0;
+			overflow: auto;
+
+			padding-block-end: var(--_pb);
+
+			display: grid;
+			gap: var(--_gap);
+			align-content: start;
+
+			clip-path: inset(0 100% 0 0);
+
+			transition: clip-path 300ms;
+
+			a {
+				display: inline-block;
 			}
 
-			@include ab.screen-64 {
-				display: none;
+			@include ab.nav {
+				--_pb: 0;
+
+				position: static;
+				clip-path: none;
+				overflow: visible;
+			}
+
+			> * {
+				--_w: 90%;
+
+				width: var(--_w);
+				margin-inline: auto;
+
+				@include ab.nav {
+					--_w: 100%;
+				}
+			}
+
+			.links {
+				padding: 0;
+
+				.control {
+					display: flex;
+					justify-content: flex-end;
+					position: sticky;
+					top: 0;
+					padding-block: 1em;
+
+					@include ab.nav {
+						display: none;
+					}
+				}
+
+				> ul {
+					margin: 0;
+					padding: 0;
+
+					display: grid;
+					gap: var(--_gap);
+
+					* {
+						font-weight: 600;
+					}
+
+					@include ab.nav {
+						display: flex;
+						align-items: center;
+
+						justify-content: space-between;
+
+						* {
+							font-size: clamp(0.8rem, 1vi, 1rem);
+						}
+					}
+				}
+
+				.sublink_container {
+					display: grid;
+					gap: 0.5em;
+					position: relative;
+
+					p {
+						display: flex;
+						gap: 0.25em;
+
+						align-items: center;
+						cursor: context-menu;
+
+						svg {
+							color: var(--accent-primary);
+						}
+					}
+
+					&[data-level="0"] {
+						&:hover {
+							.sublink {
+								--_h: 1fr;
+							}
+						}
+					}
+				}
+
+				.sublink {
+					--_gap: 0.75em;
+					--_h: 0fr;
+
+					padding-inline-start: 1em;
+
+					display: grid;
+					grid-template-rows: var(--_h);
+
+					transition: grid-template-rows 300ms;
+
+					> div {
+						display: grid;
+						gap: var(--_gap);
+					}
+
+					&[data-level="0"] {
+						@include ab.nav {
+							position: absolute;
+							top: 100%;
+
+							padding: 0;
+							padding-block-start: 0.5em;
+						}
+
+						> div {
+							overflow: hidden;
+
+							@include ab.nav {
+								--_p: 1rem;
+
+								min-width: 15rem;
+								width: max-content;
+								padding-inline: var(--_p) calc(2 * var(--_p));
+
+								background-color: var(--white);
+								box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+									rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+								border-radius: 0.5em;
+
+								> :first-child {
+									padding-block-start: var(--_p);
+								}
+
+								> :last-child {
+									padding-block-end: var(--_p);
+								}
+							}
+						}
+					}
+
+					&[data-level="1"] {
+						* {
+							color: var(--text-light);
+						}
+					}
+				}
+			}
+
+			.logo {
+				display: grid;
+				gap: var(--_gap);
+
+				img {
+					width: clamp(12.5rem, 20vi, 15rem);
+					height: auto;
+				}
+
+				@include ab.nav {
+					display: none;
+				}
 			}
 		}
 	}

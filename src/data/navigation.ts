@@ -1,5 +1,9 @@
 // links which will have dedicated page
-const rootLinks = {
+export const rootLinks = {
+	home: {
+		title: "D'accueil",
+		link: "/",
+	},
 	projectOverview: {
 		title: "Aperçu Du Project",
 		link: "/a-propos/aperçu-du-project",
@@ -96,9 +100,20 @@ const rootLinks = {
 		title: "Contact",
 		link: "/contact",
 	},
+	donate: {
+		title: "Faites Un Don Aujourd'hui",
+		link: "/faire-un-don",
+	},
 };
 
-export const navBarLinks = [
+export type NavBarLinks = {
+	title: string;
+	link?: string;
+	links?: NavBarLinks[];
+};
+
+export const navBarLinks: NavBarLinks[] = [
+	rootLinks.home,
 	{
 		title: "A Propos",
 		links: [

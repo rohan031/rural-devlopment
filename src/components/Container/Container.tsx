@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import styles from "./container.module.scss";
 
 interface ContainerProps {
@@ -6,9 +8,22 @@ interface ContainerProps {
 	children: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
+	id?: string;
+	htmlRef?: React.MutableRefObject<HTMLDivElement | null>;
+	container?: boolean;
 }
 
-const Container = ({ type, children, className, style }: ContainerProps) => {
+const Container = ({
+	type,
+	children,
+	className,
+	style,
+	id,
+	htmlRef,
+	container,
+}: ContainerProps) => {
+	const containerRef = useRef<HTMLDivElement | null>(null);
+
 	const getClassname = (type: string) => {
 		switch (type) {
 			case "normal":
@@ -28,8 +43,12 @@ const Container = ({ type, children, className, style }: ContainerProps) => {
 
 	return (
 		<div
-			className={`${getClassname(type)} ${className} ${styles.container}`}
+			className={`${getClassname(type)} ${className} ${
+				container ? styles.container : ""
+			}`}
+			id={id}
 			style={style}
+			ref={htmlRef ? htmlRef : containerRef}
 		>
 			{children}
 		</div>
