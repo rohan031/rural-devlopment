@@ -42,10 +42,17 @@ const NavMain = () => {
 				className={styles.sublink_container}
 				data-level={level}
 			>
-				<p>
-					{title}
-					{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
-				</p>
+				{link ? (
+					<Link href={link} data-type="link">
+						{title}
+						{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
+					</Link>
+				) : (
+					<p>
+						{title}
+						{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
+					</p>
+				)}
 
 				<ul className={styles.sublink} data-level={level} role="list">
 					<div>
