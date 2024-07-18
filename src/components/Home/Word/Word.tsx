@@ -15,10 +15,11 @@ const Word = () => {
 
 			<div className={styles.image}>
 				<Image
-					width="1120"
-					height="400"
+					width="1000"
+					height="600"
 					src="/home/message/message.webp"
 					alt="Mot du Coordonnateur National"
+					priority
 				/>
 			</div>
 

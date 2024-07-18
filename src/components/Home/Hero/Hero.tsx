@@ -8,8 +8,9 @@ const Hero = () => {
 			<Image
 				src="/home/hero/hero.webp"
 				alt=""
-				width="1920"
-				height="800"
+				width="1000"
+				height="600"
+				priority
 			/>
 		</div>
 	);

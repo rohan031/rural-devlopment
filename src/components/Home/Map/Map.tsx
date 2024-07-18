@@ -22,10 +22,11 @@ const Map = () => {
 			<div className={styles.content}>
 				<div className={styles.image}>
 					<Image
-						width="1920"
-						height="400"
+						width="1000"
+						height="600"
 						src="/home/map/map.webp"
 						alt="map"
+						priority
 					/>
 				</div>
 
