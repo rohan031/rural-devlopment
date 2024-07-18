@@ -1,0 +1,17 @@
+@use "/src/styles/abstracts" as ab;
+
+.video {
+	position: relative;
+
+	&::before {
+		background-color: transparent;
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	video {
+		width: 100%;
+		border-radius: 1rem;
+	}
+}

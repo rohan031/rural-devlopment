@@ -60,6 +60,19 @@ body {
 	grid-template-rows: auto 1fr auto;
 }
 
+main {
+	--_gap: 5em;
+
+	display: grid;
+	gap: var(--_gap);
+
+	margin-block-end: var(--_gap);
+}
+
+.accent {
+	color: var(--accent-secondary);
+}
+
 .error {
 	font-size: 0.9rem;
 	color: var(--error);
@@ -243,4 +256,8 @@ body {
 
 h3 {
 	font-size: clamp(1.125rem, 1.5vi, 1.25rem);
+}
+
+h2 {
+	font-size: 2rem;
 }

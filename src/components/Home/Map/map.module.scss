@@ -1,0 +1,232 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+// .map {
+// 	.heading {
+// 		text-align: center;
+// 		font-size: 2rem;
+// 		text-wrap: balance;
+// 	}
+
+// 	.content {
+// 		margin-block-start: clamp(1em, 2.75vi, 2.5em);
+// 		display: grid;
+// 		grid-template-areas:
+// 			"map"
+// 			"text"
+// 			"block";
+// 		gap: 2em;
+
+// 		.image {
+// 			grid-area: map;
+// 			max-height: 40rem;
+
+// 			img {
+// 				height: 100%;
+// 				object-fit: cover;
+// 				width: 100%;
+// 			}
+// 		}
+
+// 		.text {
+// 			display: inline;
+// 			grid-area: text;
+// 			width: min(90%, var(--max-width));
+// 			margin-inline: auto;
+
+// 			color: var(--text);
+// 		}
+
+// 		.block {
+// 			grid-area: block;
+// 			text-align: center;
+
+// 			display: grid;
+
+// 			a {
+// 				border-radius: 0;
+// 				font-size: clamp(1rem, 1.75vi, 1.5rem);
+// 				font-weight: 500;
+// 			}
+// 		}
+
+// 		@include ab.screen-80 {
+// 			--_w: calc(100 * var(--vw)); // full screen width
+// 			--_fixed-max-width: var(--max-width); // fixed max width
+// 			--_percent-max-width: calc(90 * var(--vw)); // percentage max width
+
+// 			--_percent-right: calc(
+// 				(var(--_w) - var(--_percent-max-width)) / 2
+// 			); // percentage margin right
+// 			--_fixed-right: calc(
+// 				(var(--_w) - var(--_fixed-max-width)) / 2
+// 			); // fixed margin right
+// 			--_right: max(
+// 				var(--_fixed-right),
+// 				var(--_percent-right)
+// 			); // max of both
+
+// 			--_percent-used-width: calc(
+// 				var(--_percent-max-width) / 2
+// 			); // percent used width
+// 			--_fixed-used-width: calc(
+// 				var(--_fixed-max-width) / 2
+// 			); // fixed used width
+// 			--_max-width: min(
+// 				var(--_percent-used-width),
+// 				var(--_fixed-used-width)
+// 			);
+
+// 			grid-template-areas:
+// 				"map text"
+// 				"map block";
+// 			gap: 0;
+
+// 			.text {
+// 				text-align: right;
+
+// 				display: inline-block;
+// 				max-width: var(--_max-width);
+// 				margin-inline: 0 var(--_right);
+
+// 				padding-inline-start: 2rem;
+
+// 				p {
+// 					text-wrap: pretty;
+// 				}
+// 			}
+
+// 			.image {
+// 				clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+// 				shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+
+// 				width: calc(50 * var(--vw));
+// 				max-width: calc(50 * var(--vw));
+// 			}
+// 		}
+// 	}
+// }
+
+.map {
+	display: grid;
+	gap: 2em;
+
+	.heading {
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	.content {
+		display: grid;
+		grid-template-areas:
+			"map"
+			"text"
+			"block";
+		gap: 2em;
+
+		.image {
+			grid-area: map;
+			max-height: 40rem;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+			}
+		}
+
+		.text {
+			display: inline;
+			grid-area: text;
+			width: min(90%, var(--max-width));
+			margin-inline: auto;
+
+			color: var(--text);
+		}
+
+		.block {
+			grid-area: block;
+			text-align: center;
+
+			display: grid;
+
+			a {
+				border-radius: 0;
+				font-size: clamp(1rem, 1.75vi, 1.5rem);
+				font-weight: 500;
+			}
+		}
+
+		@include ab.screen-80 {
+			--_w: calc(100 * var(--vw)); // full screen width
+			--_fixed-max-width: var(--max-width); // fixed max width
+			--_percent-max-width: calc(90 * var(--vw)); // percentage max width
+
+			--_percent-right: calc(
+				(var(--_w) - var(--_percent-max-width)) / 2
+			); // percentage margin right
+			--_fixed-right: calc(
+				(var(--_w) - var(--_fixed-max-width)) / 2
+			); // fixed margin right
+			--_right: max(
+				var(--_fixed-right),
+				var(--_percent-right)
+			); // max of both
+
+			--_percent-used-width: calc(
+				var(--_percent-max-width) / 2
+			); // percent used width
+			--_fixed-used-width: calc(
+				var(--_fixed-max-width) / 2
+			); // fixed used width
+			--_max-width: min(
+				var(--_percent-used-width),
+				var(--_fixed-used-width)
+			);
+
+			grid-template-areas:
+				"map text"
+				"map block";
+			gap: 0;
+
+			overflow: hidden;
+
+			.text {
+				text-align: right;
+
+				display: inline-block;
+				max-width: var(--_max-width);
+				margin-inline: 0 var(--_right);
+
+				padding-inline-start: 2rem;
+
+				p {
+					text-wrap: pretty;
+				}
+			}
+
+			.block {
+				--_t: calc(-10 * var(--vw));
+
+				width: calc(60 * var(--vw));
+				translate: var(--_t);
+				align-self: end;
+
+				text-align: left;
+
+				a {
+					padding-inline-start: calc(-1 * var(--_t) / 2);
+					padding-block: clamp(0.5em, 1vi, 0.75em);
+				}
+			}
+
+			.image {
+				clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+				// shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+
+				width: calc(50 * var(--vw));
+				max-width: calc(50 * var(--vw));
+				z-index: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+@use "/src/styles/abstracts" as ab;
+
+.word {
+	display: grid;
+
+	grid-template-areas:
+		"heading"
+		"image"
+		"text";
+
+	.heading,
+	.text {
+		width: min(90%, var(--max-width));
+		margin-inline: auto;
+	}
+
+	.heading {
+		grid-area: heading;
+
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	.image {
+		grid-area: image;
+		margin-block: 1rem;
+
+		clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+	}
+
+	.text {
+		grid-area: text;
+
+		color: var(--text);
+
+		.name {
+			--_mbe: 0rem;
+
+			margin-block: 1.5rem var(--_mbe);
+
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+	}
+
+	@include ab.screen-64 {
+		--_w: calc(100 * var(--vw)); // full screen width
+		--_fixed-max-width: var(--max-width); // fixed max width
+		--_percent-max-width: calc(90 * var(--vw)); // percentage max width
+
+		--_percent-left: calc(
+			(var(--_w) - var(--_percent-max-width)) / 2
+		); // percentage margin left
+		--_fixed-left: calc(
+			(var(--_w) - var(--_fixed-max-width)) / 2
+		); // fixed margin left
+		--_left: max(var(--_fixed-left), var(--_percent-left)); // max of both
+
+		--_percent-used-width: calc(
+			var(--_percent-max-width) / 2
+		); // percent used width
+		--_fixed-used-width: calc(
+			var(--_fixed-max-width) / 2
+		); // fixed used width
+		--_max-width: min(var(--_percent-used-width), var(--_fixed-used-width));
+
+		border-bottom: 0.25rem solid var(--accent-secondary);
+		grid-template-areas:
+			".image"
+			"heading image"
+			"text image";
+
+		.heading,
+		.text {
+			max-width: var(--_max-width);
+			margin-inline: var(--_left) 0;
+		}
+
+		.text {
+			.name {
+				--_mbe: 3rem;
+			}
+		}
+
+		.heading {
+			text-align: left;
+			margin-block-end: 2rem;
+		}
+
+		.image {
+			margin: 0;
+			max-height: 32.5rem;
+
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+			}
+		}
+	}
+}
