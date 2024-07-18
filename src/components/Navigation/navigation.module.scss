@@ -138,8 +138,24 @@
 
 			transition: clip-path 300ms;
 
-			a {
+			a,
+			p {
 				display: inline-block;
+
+				&[data-active="true"] {
+					color: var(--accent-secondary);
+
+					&[data-level="0"] {
+						text-decoration: underline;
+						text-decoration-color: currentColor;
+						text-underline-offset: 6px;
+						text-decoration-thickness: 2px;
+
+						svg {
+							color: var(--accent-secondary);
+						}
+					}
+				}
 			}
 
 			@include ab.nav {
@@ -213,6 +229,14 @@
 
 						svg {
 							color: var(--accent-primary);
+						}
+
+						&[data-active="true"] {
+							color: var(--accent-secondary);
+
+							svg {
+								color: var(--accent-secondary);
+							}
 						}
 					}
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "./navigation.module.scss";
 import Container from "../Container/Container";
@@ -6,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from "next/navigation";
 
 type HandleNavBarLinks = (
 	item: NavBarLinks,
@@ -13,8 +16,11 @@ type HandleNavBarLinks = (
 ) => React.JSX.Element;
 
 const NavMain = () => {
+	const pathname = usePathname();
+	// console.log(pathname);
+
 	const handleNavBarLinks: HandleNavBarLinks = (
-		{ title, links, link },
+		{ title, links, link, active },
 		level
 	) => {
 		const isRoot = links === undefined;
@@ -25,7 +31,12 @@ const NavMain = () => {
 					key={link}
 					className={`${level === 0 ? styles.linkItem : ""}`}
 				>
-					<Link href={link} data-type="link">
+					<Link
+						href={link}
+						data-type="link"
+						data-active={link === pathname}
+						data-level={level}
+					>
 						{title}
 					</Link>
 				</li>
@@ -36,6 +47,8 @@ const NavMain = () => {
 
 		if (!links) return <></>;
 
+		if (!active) active = "";
+
 		return (
 			<li
 				key={title}
@@ -43,12 +56,20 @@ const NavMain = () => {
 				data-level={level}
 			>
 				{link ? (
-					<Link href={link} data-type="link">
+					<Link
+						href={link}
+						data-type="link"
+						data-active={pathname.includes(link)}
+						data-level={level}
+					>
 						{title}
 						{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
 					</Link>
 				) : (
-					<p>
+					<p
+						data-active={pathname.includes(active)}
+						data-level={level}
+					>
 						{title}
 						{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
 					</p>
