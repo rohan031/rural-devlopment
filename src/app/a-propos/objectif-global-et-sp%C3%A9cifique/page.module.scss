@@ -1,0 +1,33 @@
+@use "/src/styles/abstracts" as ab;
+
+.content {
+    display: grid;
+    gap: 1.5em;
+
+    padding-block: 2em;
+
+    @include ab.screen-48 {
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    .img {
+        @include ab.screen-48 {
+            grid-column: 1/6;
+        }
+
+        img {
+            border-radius: 0.8em;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .para {
+        @include ab.screen-48 {
+            grid-column: 6/11;
+        }
+
+        display: grid;
+        gap: clamp(1em, 2vi, 2em);
+    }
+}

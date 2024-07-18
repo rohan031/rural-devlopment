@@ -1,0 +1,22 @@
+.list {
+    padding-block: 2em;
+    ol {
+        display: grid;
+        gap: 2em;
+
+        li {
+            h2 {
+                font-size: 1rem;
+            }
+
+            ul {
+                padding: 0;
+                padding-top: 2em;
+
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
