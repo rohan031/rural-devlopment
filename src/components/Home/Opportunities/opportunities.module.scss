@@ -1,0 +1,71 @@
+@use "/src/styles/abstracts" as ab;
+
+.opportunities {
+	--_bg: hsla(214, 88%, 34%, 0.8);
+
+	background-image: url("../../../../public/home/opportunities/opportunities.webp");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	background-position: center;
+
+	padding-block: 3rem;
+
+	min-height: 22rem;
+	position: relative;
+
+	border-image: fill 0
+		linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.5) 0%,
+			rgba(10, 75, 161, 0.75) 0%
+		);
+
+	@include ab.screen-64 {
+		background-position: center 25%;
+	}
+
+	.container {
+		display: grid;
+		gap: 2.5rem;
+
+		position: absolute;
+		inset: 0;
+		margin: auto;
+
+		align-content: center;
+	}
+
+	.heading {
+		color: var(--white);
+		font-size: clamp(2.5rem, 4vi, 3.75rem);
+		text-align: center;
+	}
+
+	.items {
+		--_gap: 2rem;
+
+		display: grid;
+		gap: var(--_gap);
+
+		place-items: center;
+
+		a {
+			text-align: center;
+			min-width: 20rem;
+			font-size: clamp(1rem, 1.5vi, 1.25rem);
+		}
+
+		@include ab.screen-64 {
+			--_gap: 2.5rem;
+
+			display: flex;
+			justify-content: center;
+
+			a {
+				min-width: max-content;
+				width: 17.5rem;
+			}
+		}
+	}
+}
