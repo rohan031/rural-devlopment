@@ -304,6 +304,10 @@
 					&[data-level="1"] {
 						* {
 							color: var(--text-light);
+
+							&[data-active="true"] {
+								color: var(--accent-secondary);
+							}
 						}
 					}
 				}

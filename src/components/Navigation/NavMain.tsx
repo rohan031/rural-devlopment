@@ -17,7 +17,6 @@ type HandleNavBarLinks = (
 
 const NavMain = () => {
 	const pathname = usePathname();
-	// console.log(pathname);
 
 	const handleNavBarLinks: HandleNavBarLinks = (
 		{ title, links, link, active },
