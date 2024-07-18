@@ -31,6 +31,7 @@ const NavUpper = () => {
 						src="/logo.webp"
 						alt="logo"
 						quality={100}
+						priority
 					/>
 				</Link>
 			</div>
@@ -42,6 +43,7 @@ const NavUpper = () => {
 					src="/project.webp"
 					alt="project"
 					quality={100}
+					priority
 				/>
 			</div>
 
@@ -52,6 +54,7 @@ const NavUpper = () => {
 					src="/bank.webp"
 					alt="bank"
 					quality={100}
+					priority
 				/>
 			</div>
 
