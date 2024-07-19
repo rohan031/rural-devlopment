@@ -19,12 +19,11 @@ const Map = () => {
 
 			<div className={styles.content}>
 				<div className={styles.image}>
-					<Image
+					<img
 						width="1000"
 						height="600"
 						src="/home/map/map.webp"
 						alt="map"
-						priority
 					/>
 				</div>
 

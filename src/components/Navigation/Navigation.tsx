@@ -25,37 +25,21 @@ const NavUpper = () => {
 		<Container type="normal" className={styles.navUpper} htmlRef={navRef}>
 			<div>
 				<Link href="/">
-					<Image
-						width={200}
-						height={100}
-						src="/logo.webp"
-						alt="logo"
-						quality={100}
-						priority
-					/>
+					<img width={200} height={100} src="/logo.webp" alt="logo" />
 				</Link>
 			</div>
 
 			<div>
-				<Image
+				<img
 					width={200}
 					height={100}
 					src="/project.webp"
 					alt="project"
-					quality={100}
-					priority
 				/>
 			</div>
 
 			<div>
-				<Image
-					width={200}
-					height={100}
-					src="/bank.webp"
-					alt="bank"
-					quality={100}
-					priority
-				/>
+				<img width={200} height={100} src="/bank.webp" alt="bank" />
 			</div>
 
 			<div className={styles.donate}>
