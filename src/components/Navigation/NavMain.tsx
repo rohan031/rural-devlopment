@@ -122,32 +122,29 @@ const NavMain = () => {
 
 					<div className={styles.logo}>
 						<div>
-							<Image
+							<img
 								width={200}
 								height={100}
 								src="/logo.webp"
 								alt="logo"
-								quality={100}
 							/>
 						</div>
 
 						<div>
-							<Image
+							<img
 								width={200}
 								height={100}
 								src="/project.webp"
 								alt="project"
-								quality={100}
 							/>
 						</div>
 
 						<div>
-							<Image
+							<img
 								width={200}
 								height={100}
 								src="/bank.webp"
 								alt="bank"
-								quality={100}
 							/>
 						</div>
 					</div>

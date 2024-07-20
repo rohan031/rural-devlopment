@@ -5,13 +5,7 @@ import Image from "next/image";
 const Hero = () => {
 	return (
 		<div className={styles.hero}>
-			<Image
-				src="/home/hero/hero.webp"
-				alt=""
-				width="1000"
-				height="600"
-				priority
-			/>
+			<img src="/home/hero/hero.webp" alt="" width="1000" height="600" />
 		</div>
 	);
 };
