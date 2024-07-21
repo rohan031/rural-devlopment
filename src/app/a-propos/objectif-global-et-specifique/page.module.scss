@@ -1,0 +1,36 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+
+	@include ab.screen-48 {
+		flex-direction: row;
+	}
+
+	.image {
+		flex: 1;
+
+		img {
+			border-radius: 0.5em;
+			margin-inline: auto;
+		}
+	}
+
+	.text {
+		flex: 1;
+
+		display: grid;
+		gap: 0.75em;
+
+		.list {
+			padding: 0;
+			list-style-position: inside;
+			list-style-type: "– ";
+
+			display: grid;
+			gap: 0.5em;
+		}
+	}
+}

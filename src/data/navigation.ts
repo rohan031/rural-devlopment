@@ -6,7 +6,7 @@ export const rootLinks = {
 	},
 	projectOverview: {
 		title: "Aperçu Du Project",
-		link: "/a-propos/aperçu-du-project",
+		link: "/a-propos/apercu-du-project",
 	},
 	backgroundAndRationale: {
 		title: "Contexte Et Justification",
@@ -14,43 +14,43 @@ export const rootLinks = {
 	},
 	overallAndSpecificObjective: {
 		title: "Objectif Global Et Spécifique",
-		link: "/a-propos/Objectif-global-et-spécifique",
+		link: "/a-propos/objectif-global-et-specifique",
 	},
 	expectedResults: {
 		title: "Résultats Attendus",
-		link: "/a-propos/résultats-attendus",
+		link: "/a-propos/resultats-attendus",
 	},
 	kasai: {
 		title: "Kasaï",
-		link: "répertoire-ouvrages/kasaï",
+		link: "/repertoire-ouvrages/kasai",
 	},
 	kasaiCentral: {
 		title: "Kasaï Central",
-		link: "répertoire-ouvrages/kasaï-central",
+		link: "/repertoire-ouvrages/kasai-central",
 	},
 	kasaiEastern: {
 		title: "Kasaï Oriental",
-		link: "répertoire-ouvrages/kasaï-oriental",
+		link: "/repertoire-ouvrages/kasai-oriental",
 	},
 	Loamani: {
 		title: "Lomami",
-		link: "répertoire-ouvrages/lomami",
+		link: "/repertoire-ouvrages/lomami",
 	},
 	sankuru: {
 		title: "Sankuru",
-		link: "répertoire-ouvrages/sankuru",
+		link: "/repertoire-ouvrages/sankuru",
 	},
 	infrastructureDevelopment: {
 		title: "Developpement Des Infrastructres",
-		link: "/non-réalisations/developpement-des-infrastructres",
+		link: "/non-realisations/developpement-des-infrastructres",
 	},
 	studiesAndCapacityBuilding: {
 		title: "Etudes et Reforcement des Capacites",
-		link: "/non-réalisations/etudes-et-reforcement-des-capacites",
+		link: "/non-realisations/etudes-et-reforcement-des-capacites",
 	},
 	projectCoordinationAndManagement: {
 		title: "Coordination et Gestion du Projet",
-		link: "/non-réalisations/coordination-et-gestion-du-projet",
+		link: "/non-realisations/coordination-et-gestion-du-projet",
 	},
 	annualReports: {
 		title: "Rapports Annuels",
@@ -62,15 +62,15 @@ export const rootLinks = {
 	},
 	contractsForGoods: {
 		title: "Contrat Des Biens",
-		link: "/publication/Contrats/contrat-des-biens",
+		link: "/publication/contrats/contrat-des-biens",
 	},
 	serviceContracts: {
 		title: "Contrat Des Services",
-		link: "/publication/Contrats/contrat-des-services",
+		link: "/publication/contrats/contrat-des-services",
 	},
 	worksContracts: {
 		title: "Contrat De Travaux",
-		link: "/publication/Contrats/contrat-de-travaux",
+		link: "/publication/contrats/contrat-de-travaux",
 	},
 	quarterlyProgressReports: {
 		title: "Rapports D'avancement Trismestriels",
@@ -78,23 +78,23 @@ export const rootLinks = {
 	},
 	difficulties: {
 		title: "Difficultés",
-		link: "/publication/difficultés",
+		link: "/publication/difficultes",
 	},
 	callForTenders: {
 		title: "Appels D'offres",
-		link: "/opportunités/appels-d-offres",
+		link: "/opportunites/appels-d-offres",
 	},
 	noticeCallForApplications: {
 		title: "Avis Appel Candidature",
-		link: "/opportunités/avis-appel-candidature",
+		link: "/opportunites/avis-appel-candidature",
 	},
 	callForExpressionOfInterest: {
 		title: "Appel A Manifestation D'intérêt",
-		link: "/opportunités/appel-a-manifestation-d-intérêt",
+		link: "/opportunites/appel-a-manifestation-d-intérêt",
 	},
 	theMinistry: {
 		title: "Le Ministère",
-		link: "/le-ministère",
+		link: "/le-ministere",
 	},
 	contact: {
 		title: "Contact",
@@ -109,6 +109,7 @@ export const rootLinks = {
 export type NavBarLinks = {
 	title: string;
 	link?: string;
+	active?: string;
 	links?: NavBarLinks[];
 };
 
@@ -116,6 +117,7 @@ export const navBarLinks: NavBarLinks[] = [
 	rootLinks.home,
 	{
 		title: "A Propos",
+		active: "/a-propos",
 		links: [
 			rootLinks.projectOverview,
 			rootLinks.backgroundAndRationale,
@@ -125,6 +127,7 @@ export const navBarLinks: NavBarLinks[] = [
 	},
 	{
 		title: "Répertoire/Ouvrages",
+		active: "/repertoire-ouvrages",
 		links: [
 			rootLinks.kasai,
 			rootLinks.kasaiCentral,
@@ -135,6 +138,7 @@ export const navBarLinks: NavBarLinks[] = [
 	},
 	{
 		title: "Non Réalisations",
+		active: "/non-realisations",
 		links: [
 			rootLinks.infrastructureDevelopment,
 			rootLinks.studiesAndCapacityBuilding,
@@ -143,6 +147,7 @@ export const navBarLinks: NavBarLinks[] = [
 	},
 	{
 		title: "Publication",
+		active: "/publication",
 		links: [
 			rootLinks.annualReports,
 			{
@@ -158,7 +163,8 @@ export const navBarLinks: NavBarLinks[] = [
 		],
 	},
 	{
-		title: "Opportunités",
+		title: "Opportunites",
+		active: "/opportunites",
 		links: [
 			rootLinks.callForTenders,
 			rootLinks.noticeCallForApplications,

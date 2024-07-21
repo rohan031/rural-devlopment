@@ -1,0 +1,51 @@
+@use "/src/styles/abstracts" as ab;
+
+.listcontainer {
+	.list {
+		display: grid;
+		gap: 2em;
+
+		padding: 0;
+		list-style-position: inside;
+
+		> li {
+			padding: 0;
+
+			h2 {
+				font-size: clamp(1rem, 1.25vi, 1.125rem);
+				display: inline-block;
+			}
+
+			.subList {
+				list-style-type: "– ";
+				list-style-position: inside;
+
+				padding: 0;
+				padding-block-start: 1em;
+			}
+		}
+
+		// > li {
+		// 	padding: 0;
+
+		// 	> * {
+		// 		display: inline-block;
+		// 	}
+
+		// 	h2 {
+		// 		font-size: 1.125rem;
+		// 	}
+
+		// 	.subList {
+		// 		list-style-position: inside;
+		// 		list-style-type: "– ";
+
+		// 		padding: 0;
+		// 		padding-block-start: 1.5em;
+
+		// 		> li {
+		// 		}
+		// 	}
+		// }
+	}
+}
