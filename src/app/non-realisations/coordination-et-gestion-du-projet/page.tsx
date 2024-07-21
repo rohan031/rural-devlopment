@@ -5,13 +5,14 @@ import styles from "./page.module.scss";
 
 const data = {
 	heading: "COORDINATION ET GESTION DU PROJET",
-	text: ["Élaboration des rapports d’avancement, d’audit et de finances ;"],
+	text: ["Élaboration des rapports d’avancement, d’audit et de finances"],
 };
 
 const ProjectCoordinationAndManagement = () => {
 	return (
 		<>
 			<Hero heading={data.heading} />
+
 			<Container className={styles.list}>
 				<ul>
 					{data.text.map((item) => (

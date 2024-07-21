@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./navigation.module.scss";
 import Container from "../Container/Container";
 import { NavBarLinks, navBarLinks, rootLinks } from "@/data/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
@@ -16,7 +15,12 @@ type HandleNavBarLinks = (
 ) => React.JSX.Element;
 
 const NavMain = () => {
+	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
+
+	const handleClick = () => {
+		setOpen(false);
+	};
 
 	const handleNavBarLinks: HandleNavBarLinks = (
 		{ title, links, link, active },
@@ -35,6 +39,7 @@ const NavMain = () => {
 						data-type="link"
 						data-active={link === pathname}
 						data-level={level}
+						onClick={handleClick}
 					>
 						{title}
 					</Link>
@@ -60,6 +65,7 @@ const NavMain = () => {
 						data-type="link"
 						data-active={pathname.includes(link)}
 						data-level={level}
+						onClick={handleClick}
 					>
 						{title}
 						{level === 0 && <FontAwesomeIcon icon={faAngleDown} />}
@@ -89,7 +95,12 @@ const NavMain = () => {
 		<div className={styles.navMain}>
 			<Container type="normal" className={styles.container}>
 				<div className={styles.toggle}>
-					<input id="nav" type="checkbox" />
+					<input
+						id="nav"
+						type="checkbox"
+						checked={open}
+						onChange={(e) => setOpen(e.target.checked)}
+					/>
 					<label htmlFor="nav" className={styles.label}>
 						<span></span>
 					</label>

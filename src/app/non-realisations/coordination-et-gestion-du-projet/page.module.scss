@@ -1,4 +1,9 @@
 .list {
-    padding-block: 2em;
-    height: clamp(25vh, 40vi, 40vh);
+	// height: clamp(25vh, 40vi, 40vh);
+	min-height: 20rem;
+
+	ul {
+		list-style-position: inside;
+		padding: 0;
+	}
 }
