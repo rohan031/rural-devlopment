@@ -40,6 +40,26 @@ export const rootLinks = {
 		title: "Sankuru",
 		link: "/repertoire-ouvrages/sankuru",
 	},
+	hautLomami: {
+		title: "Haut-lomami",
+		link: "/repertoire-ouvrages/haut-lomami",
+	},
+	kwango: {
+		title: "Kwango",
+		link: "/repertoire-ouvrages/kwango",
+	},
+	kwilu: {
+		title: "Kwilu",
+		link: "/repertoire-ouvrages/kwilu",
+	},
+	maindombe: {
+		title: "Maindombe",
+		link: "/repertoire-ouvrages/maindombe",
+	},
+	maniema: {
+		title: "Maniema",
+		link: "/repertoire-ouvrages/maniema",
+	},
 	infrastructureDevelopment: {
 		title: "Developpement Des Infrastructres",
 		link: "/non-realisations/developpement-des-infrastructres",
@@ -114,7 +134,7 @@ export type NavBarLinks = {
 };
 
 export const navBarLinks: NavBarLinks[] = [
-	rootLinks.home,
+	// rootLinks.home,
 	{
 		title: "A Propos",
 		active: "/a-propos",
@@ -134,6 +154,11 @@ export const navBarLinks: NavBarLinks[] = [
 			rootLinks.kasaiEastern,
 			rootLinks.Loamani,
 			rootLinks.sankuru,
+			rootLinks.hautLomami,
+			rootLinks.kwango,
+			rootLinks.kwilu,
+			rootLinks.maindombe,
+			rootLinks.maniema,
 		],
 	},
 	{
