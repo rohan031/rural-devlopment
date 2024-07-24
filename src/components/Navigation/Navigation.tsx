@@ -67,8 +67,17 @@ const NavUpper = () => {
 };
 
 const Navigation = () => {
+	const navRef = useRef<HTMLElement | null>(null);
+
+	useEffect(() => {
+		new ResizeObserver(() => {
+			let height = navRef.current?.offsetHeight;
+			document.documentElement.style.setProperty("--nav", `${height}px`);
+		}).observe(document.documentElement);
+	}, []);
+
 	return (
-		<nav className={styles.nav}>
+		<nav className={styles.nav} ref={navRef}>
 			<NavUpper />
 			<NavMain />
 		</nav>

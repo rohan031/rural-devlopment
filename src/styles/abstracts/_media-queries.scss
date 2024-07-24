@@ -33,9 +33,9 @@
 	}
 }
 
-// width > 48em and orientation landscape
-@mixin screen-work {
-	@media (min-width: 48em) and (orientation: landscape) and (min-height: 43em) {
+// devices that support hover
+@mixin hover {
+	@media (hover: hover) {
 		@content;
 	}
 }
