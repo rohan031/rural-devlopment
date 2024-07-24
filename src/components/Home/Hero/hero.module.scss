@@ -1,7 +1,7 @@
 @use "/src/styles/abstracts" as ab;
 
 .hero {
-	height: calc(100vb - var(--nav, 0));
+	height: calc(100dvb - var(--nav, 0));
 	overflow: hidden;
 
 	position: relative;
