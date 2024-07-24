@@ -7,6 +7,10 @@
 
 	z-index: 10;
 
+	.navUpperParent {
+		background-color: var(--white);
+	}
+
 	.navUpper {
 		display: none;
 
@@ -325,6 +329,30 @@
 				@include ab.nav {
 					display: none;
 				}
+			}
+		}
+
+		.home.home {
+			--_bg: var(--accent-primary);
+			padding: 0.25rem;
+
+			background-color: var(--_bg);
+			width: 1.75rem;
+			aspect-ratio: 1;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 0.25rem;
+
+			transition: background-color 300ms;
+
+			&[data-active="true"] {
+				--_bg: var(--accent-secondary);
+			}
+
+			svg {
+				color: var(--white);
 			}
 		}
 	}

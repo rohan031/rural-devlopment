@@ -6,7 +6,7 @@ import Container from "../Container/Container";
 import { NavBarLinks, navBarLinks, rootLinks } from "@/data/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faHome } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
 
 type HandleNavBarLinks = (
@@ -125,6 +125,18 @@ const NavMain = () => {
 						</div>
 
 						<ul role="list">
+							<li className={styles.linkItem}>
+								<Link
+									className={styles.home}
+									data-type="link"
+									href="/"
+									data-active={pathname === "/"}
+									onClick={handleClick}
+								>
+									<FontAwesomeIcon icon={faHome} />
+								</Link>
+							</li>
+
 							{navBarLinks.map((item) =>
 								handleNavBarLinks(item, 0)
 							)}
