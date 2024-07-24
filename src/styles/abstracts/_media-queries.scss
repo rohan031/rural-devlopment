@@ -35,7 +35,7 @@
 
 // devices that support hover
 @mixin hover {
-	@media (hover: hover) {
+	@media (hover: hover) and (pointer: fine) {
 		@content;
 	}
 }
