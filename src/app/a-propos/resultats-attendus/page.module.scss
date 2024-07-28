@@ -1,28 +1,40 @@
 @use "/src/styles/abstracts" as ab;
 
 .listcontainer {
-	.list {
-		display: grid;
-		gap: 2em;
+    .listheading {
+        display: grid;
+        gap: 2em;
 
-		padding: 0;
-		list-style-position: inside;
+        .sublistheading {
+            h2 {
+                font-size: clamp(1.2rem, 1.5vi, 1.5rem);
+                // display: inline;
+                padding-block-end: 1em;
+            }
+            .list {
+                display: grid;
+                gap: 1em;
 
-		> li {
-			padding: 0;
+                padding: 0;
+                list-style-position: inside;
 
-			h2 {
-				font-size: clamp(1rem, 1.25vi, 1.125rem);
-				display: inline;
-			}
+                > li {
+                    padding: 0;
 
-			.subList {
-				list-style-type: "– ";
-				list-style-position: inside;
+                    h3 {
+                        font-size: clamp(1rem, 1.25vi, 1.125rem);
+                        display: inline;
+                    }
 
-				padding: 0;
-				padding-block-start: 1em;
-			}
-		}
-	}
+                    .subList {
+                        list-style-type: "– ";
+                        list-style-position: inside;
+
+                        padding: 0;
+                        padding-block-start: 1em;
+                    }
+                }
+            }
+        }
+    }
 }
