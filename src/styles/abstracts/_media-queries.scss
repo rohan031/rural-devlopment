@@ -65,7 +65,7 @@
 }
 
 @mixin le-minstry {
-	@include screen-40 {
+	@include screen-48 {
 		@content;
 	}
 }
