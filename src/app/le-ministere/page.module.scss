@@ -1,87 +1,31 @@
 @use "/src/styles/abstracts" as ab;
 
 .ministry {
-    display: grid;
-    gap: 2em;
+	display: grid;
+	gap: var(--_gap);
 
-    &1 {
-        display: flex;
+	> div {
+		--_gap: 1.5em;
 
-        .list {
-            // outline: 2px solid red;
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: grid;
-                gap: 1.5em;
+		display: grid;
+		gap: var(--_gap);
 
-                @include ab.screen-40 {
-                    display: block;
-                }
+		h2 {
+			text-align: center;
+			text-wrap: balance;
+		}
+	}
 
-                li {
-                    @include ab.screen-40 {
-                        padding-block-start: 1.5em;
-                    }
-                }
+	ol,
+	ul {
+		display: grid;
+		gap: 0.5em;
 
-                .img {
-                    width: 100%;
+		padding: 0;
+		list-style-position: inside;
 
-                    @include ab.screen-40 {
-                        shape-outside: url("../../../public/ministry-1.png");
-                        float: left;
-                        // border: 2px solid black;
-                        width: clamp(17em, 27vw, 27em);
-                        height: clamp(21em, 30vw, 30em);
-                        padding-inline-end: clamp(1em, 2vw, 2em);
-                        margin-block-end: clamp(0.8em, 1.5vw, 1.5em);
-                    }
-
-                    img {
-                        border-radius: 0.5em;
-                        width: 100%;
-                        height: auto;
-                        aspect-ratio: 1/1.2;
-
-                        @include ab.screen-40 {
-                            width: clamp(17em, 27vw, 27em);
-                            height: clamp(21em, 30vw, 30em);
-                        }
-                    }
-                }
-
-                h2 {
-                    text-align: center;
-                    // margin-block: 1em;
-                    font-size: 1.5rem;
-
-                    @include ab.screen-40 {
-                        text-align: left;
-                        margin-block: 0;
-                    }
-                }
-            }
-        }
-    }
-    &2 {
-        h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            padding-block-end: 1em;
-        }
-
-        .subheading {
-            padding-block: 1em;
-        }
-
-        .list {
-            .list_Item {
-                list-style: none;
-                padding: 0;
-                // margin: 0;
-            }
-        }
-    }
+		> ul {
+			gap: 0.25em;
+		}
+	}
 }

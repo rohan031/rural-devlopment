@@ -63,3 +63,9 @@
 		@content;
 	}
 }
+
+@mixin le-minstry {
+	@include screen-40 {
+		@content;
+	}
+}

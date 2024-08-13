@@ -1,0 +1,12 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	.list {
+		list-style-type: "– ";
+	}
+
+	.sublist {
+		list-style-type: disc;
+		padding-block-start: 0.25em;
+	}
+}
