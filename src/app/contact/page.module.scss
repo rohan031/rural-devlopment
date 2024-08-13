@@ -1,99 +1,90 @@
 @use "/src/styles/abstracts" as ab;
 
-.contact {
-    iframe {
-        width: 100%;
-        height: 25em;
-    }
+.iframe {
+	iframe {
+		width: 100%;
+		height: 25em;
+	}
+}
 
-    .content {
-        h1 {
-            padding-block: 1em;
-            text-align: center;
-            font-size: clamp(2.5rem, 3.5vw, 3.5rem);
-        }
+.content {
+	display: grid;
+	gap: 3em;
 
-        .details {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(2.5em, 3vw, 3em);
+	h1 {
+		text-align: center;
+		font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+	}
 
-            @include ab.screen-64 {
-                flex-direction: row;
-                justify-content: center;
-            }
+	.details {
+		display: grid;
+		gap: clamp(2em, 3vi, 3em);
 
-            .img {
-                height: 27.5em;
+		@include ab.contact-us-sm {
+			grid-template-columns: 1fr 1fr;
+		}
 
-                img {
-                    width: 100%;
-                    border-radius: 0.5em;
+		@include ab.contact-us {
+			grid-template-columns: 3fr 2fr 3fr;
+		}
 
-                    @include ab.screen-64 {
-                        width: 26em;
-                    }
-                }
-            }
+		.image {
+			img {
+				border-radius: 0.5em;
+				width: 100%;
+				height: 100%;
 
-            .add {
-                display: grid;
-                gap: 1em;
+				object-fit: cover;
+			}
+		}
 
-                h2,
-                p,
-                a {
-                    font-size: 1.125rem;
-                    color: var(--black);
-                    text-decoration: none;
-                }
+		.contact {
+			display: grid;
+			align-content: space-between;
+			gap: 1.5em;
 
-                > div {
-                    display: grid;
-                    gap: 0.5em;
+			> div {
+				display: grid;
+				gap: 0.75em;
 
-                    > div {
-                        display: flex;
-                        flex-direction: column;
-                    }
-                }
+				.info {
+					display: grid;
+					gap: 0.5em;
+				}
+			}
 
-                @include ab.screen-64 {
-                    width: 12em;
-                }
-            }
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
-                align-items: center;
+			h3,
+			p,
+			a {
+				font-size: 1.125rem;
+			}
+		}
 
-                @include ab.screen-64 {
-                    align-items: flex-start;
-                    width: 40%;
-                }
+		.form {
+			display: grid;
+			gap: 1em;
+			align-content: space-between;
 
-                input,
-                textarea {
-                    font-size: 1.125rem;
-                    padding: 0.5em;
-                    background-color: #fffbf5;
-                    border: 0.1em solid #e9ccaf;
-                    width: 100%;
-                    resize: none;
-                }
+			@include ab.contact-us-sm {
+				grid-column: span 2;
+			}
 
-                button {
-                    font-size: 1.125rem;
-                    padding: 0.5em;
-                    background-color: #008931;
-                    border: none;
-                    color: var(--white);
-                    cursor: pointer;
-                    width: 6em;
-                    border-radius: 0.5em;
-                }
-            }
-        }
-    }
+			@include ab.contact-us {
+				grid-column: span 1;
+			}
+
+			.action {
+				text-align: center;
+
+				@include ab.contact-us {
+					text-align: left;
+				}
+			}
+
+			input,
+			textarea {
+				--_w: 100%;
+			}
+		}
+	}
 }
