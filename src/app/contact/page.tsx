@@ -1,21 +1,116 @@
 "use client";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styles from "./page.module.scss";
 import Container from "@/components/Container/Container";
 import Image from "next/image";
 import { address, email, phone } from "@/data/navigation";
+
 const data = {
     heading: "CONTACTEZ-NOUS",
 };
 
+interface Inputs {
+    name: string;
+    number: string;
+    emailId: string;
+    message: string;
+}
+
+// Validation Functions
+const validateName = (name: string) => {
+    const pattern = /^[a-zA-Z]+(?:[' -][a-zA-Z]+)*$/;
+    return pattern.test(name) && name.length >= 3;
+};
+
+const validateEmail = (email: string) => {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    return emailRegex.test(email);
+};
+
+const validatePhoneNumber = (number: string) => {
+    const phoneRegex = /^\d{10,12}$/;
+    return phoneRegex.test(number);
+};
+
+const validateMessage = (message: string) => {
+    return message.length > 0;
+};
+
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [emailId, setEmail] = useState("");
-    const [number, setNumber] = useState("");
-    const [message, setMessage] = useState("");
+    const [inputs, setInputs] = useState<Inputs>({
+        name: "",
+        number: "",
+        emailId: "",
+        message: "",
+    });
+
+    const [errors, setErrors] = useState<Partial<Inputs>>({});
+
+    const handleChange = (
+        event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = event.target;
+        setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
+
+        validateField(name, value);
+    };
+
+    const validateField = (name: string, value: string) => {
+        let error = "";
+        switch (name) {
+            case "name":
+                if (!validateName(value)) {
+                    error = "Invalid name. Please enter a valid name.";
+                }
+                break;
+            case "number":
+                if (!validatePhoneNumber(value)) {
+                    error = "Invalid phone number. Must be 10-12 digits.";
+                }
+                break;
+            case "emailId":
+                if (!validateEmail(value)) {
+                    error = "Invalid email address.";
+                }
+                break;
+            case "message":
+                if (!validateMessage(value)) {
+                    error = "Please write a message";
+                }
+                break;
+            default:
+                break;
+        }
+
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+    };
 
     const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault();
+
+        const nameError = !validateName(inputs.name)
+            ? "Invalid name. Please enter a valid name."
+            : "";
+        const numberError = !validatePhoneNumber(inputs.number)
+            ? "Invalid phone number. Must be 10-12 digits."
+            : "";
+        const emailError = !validateEmail(inputs.emailId)
+            ? "Invalid email address."
+            : "";
+        const messageError = !validateMessage(inputs.message)
+            ? "Please write a message"
+            : "";
+
+        setErrors({
+            name: nameError,
+            number: numberError,
+            emailId: emailError,
+            message: messageError,
+        });
+
+        if (!nameError && !numberError && !emailError && !messageError) {
+            console.log("Form Submitted Successfully", inputs);
+        }
     };
 
     return (
@@ -92,34 +187,50 @@ const Contact = () => {
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div className={styles.input}>
                             <input
+                                name="name"
                                 type="text"
                                 placeholder="Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={inputs.name || ""}
+                                onChange={handleChange}
                             />
+                            {errors.name && (
+                                <p className={styles.error}>{errors.name}</p>
+                            )}
                         </div>
                         <div className={styles.input}>
                             <input
+                                name="number"
                                 type="text"
                                 placeholder="Phone"
-                                value={number}
-                                onChange={(e) => setNumber(e.target.value)}
+                                value={inputs.number || ""}
+                                onChange={handleChange}
                             />
+                            {errors.number && (
+                                <p className={styles.error}>{errors.number}</p>
+                            )}
                         </div>
                         <div className={styles.input}>
                             <input
+                                name="emailId"
                                 type="text"
                                 placeholder="Email"
-                                value={emailId}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={inputs.emailId || ""}
+                                onChange={handleChange}
                             />
+                            {errors.emailId && (
+                                <p className={styles.error}>{errors.emailId}</p>
+                            )}
                         </div>
                         <div className={styles.input}>
                             <textarea
+                                name="message"
                                 placeholder="Message"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
+                                value={inputs.message || ""}
+                                onChange={handleChange}
                             />
+                            {errors.message && (
+                                <p className={styles.error}>{errors.message}</p>
+                            )}
                         </div>
 
                         <div className={styles.action}>
