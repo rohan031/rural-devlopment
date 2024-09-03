@@ -17,6 +17,10 @@
 	--disabled: #7d7c7c;
 	--active: #191919;
 
+	// input
+	--input: #fffbf5;
+	--input-border: #e9ccaf;
+
 	// text
 	--text-dark: var(--black);
 	--text: var(--grey);
@@ -75,10 +79,10 @@ main {
 }
 
 .error {
-	font-size: 0.9rem;
+	font-size: 0.75rem;
 	color: var(--error);
 
-	text-align: center;
+	// text-align: center;
 }
 
 .message {
@@ -86,6 +90,19 @@ main {
 	color: var(--success);
 
 	text-align: center;
+}
+
+input,
+textarea {
+	--_w: 30rem;
+
+	background-color: var(--input);
+	border: 1px solid var(--input-border);
+
+	width: min(100%, var(--_w));
+	font-size: 1.125rem;
+	padding: 0.5em;
+	resize: none;
 }
 
 // button

@@ -51,3 +51,21 @@
 		@content;
 	}
 }
+
+@mixin contact-us-sm {
+	@include screen-48 {
+		@content;
+	}
+}
+
+@mixin contact-us {
+	@include screen-64 {
+		@content;
+	}
+}
+
+@mixin le-minstry {
+	@include screen-48 {
+		@content;
+	}
+}

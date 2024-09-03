@@ -5,7 +5,7 @@ import styles from "./container.module.scss";
 
 interface ContainerProps {
 	type?: "normal" | "wide" | "full" | "sm-full" | "lg-full" | "sm-full-wide";
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
 	id?: string;
