@@ -1,0 +1,92 @@
+@use "/src/styles/abstracts" as ab;
+
+.loader {
+	display: grid;
+	height: 60vb;
+	margin-block: 1em 2em;
+
+	place-items: center;
+	color: var(--black);
+
+	p {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+}
+
+.blog {
+	padding-block: 3em;
+
+	display: grid;
+	gap: 2em;
+	color: black;
+
+	.breadcrumb {
+		text-align: center;
+
+		display: flex;
+		gap: 0.5em;
+		justify-content: center;
+		align-items: center;
+
+		a {
+			text-decoration: none;
+			color: var(--black);
+		}
+
+		svg {
+			color: var(--text);
+		}
+
+		.home {
+			color: var(--accent-secondary);
+		}
+	}
+
+	.content {
+		font-size: 1rem;
+	}
+
+	.main {
+		margin-block-end: 2em;
+
+		h1 {
+			font-size: clamp(1.25rem, 1.75vi, 1.5rem);
+			text-align: center;
+
+			width: 90%;
+			margin-inline: auto;
+		}
+
+		.meta {
+			margin-block: 1em 3em;
+
+			text-align: center;
+			display: flex;
+			gap: 1em;
+			font-size: 0.9rem;
+			justify-content: center;
+
+			.author {
+				color: var(--accent-secondary);
+				font-weight: 500;
+			}
+
+			.date {
+				color: var(--text);
+			}
+		}
+
+		.image {
+			max-height: 32em;
+			margin-block-end: 3em;
+
+			img {
+				width: 100%;
+				max-height: 32em;
+				// height: auto;
+				object-fit: cover;
+			}
+		}
+	}
+}
