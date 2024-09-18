@@ -74,31 +74,31 @@ export const rootLinks = {
 	},
 	annualReports: {
 		title: "Rapports Annuels",
-		link: "/publication/rapports-annuels",
+		link: "/publications/rapports-annuels",
 	},
 	contracts: {
 		title: "Contrats",
-		link: "/publication/contrats",
+		link: "/publications/contrats",
 	},
 	contractsForGoods: {
 		title: "Contrat Des Biens",
-		link: "/publication/contrats/contrat-des-biens",
+		link: "/publications/contrats/contrat-des-biens",
 	},
 	serviceContracts: {
 		title: "Contrat Des Services",
-		link: "/publication/contrats/contrat-des-services",
+		link: "/publications/contrats/contrat-des-services",
 	},
 	worksContracts: {
 		title: "Contrat De Travaux",
-		link: "/publication/contrats/contrat-de-travaux",
+		link: "/publications/contrats/contrat-de-travaux",
 	},
 	quarterlyProgressReports: {
 		title: "Rapports D'avancement Trismestriels",
-		link: "/publication/rapports-d-avancement-trismestriels",
+		link: "/publications/rapports-d-avancement-trismestriels",
 	},
 	difficulties: {
 		title: "Difficultés",
-		link: "/publication/difficultes",
+		link: "/publications/difficultes",
 	},
 	callForTenders: {
 		title: "Appels D'offres",
@@ -172,7 +172,7 @@ export const navBarLinks: NavBarLinks[] = [
 	},
 	{
 		title: "Publication",
-		active: "/publication",
+		active: "/publications",
 		links: [
 			rootLinks.annualReports,
 			{
