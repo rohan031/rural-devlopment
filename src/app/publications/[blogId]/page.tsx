@@ -3,8 +3,6 @@ import styles from "./blogId.module.scss";
 import "./blog.scss";
 import SocialShare from "@/components/socialShare/SocialShare";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import Container from "@/components/Container/Container";
 import { categoryMap } from "@/data/blog-category";
 
@@ -87,13 +85,6 @@ const BlogItem = async ({ params }: { params: { blogId: string } }) => {
 
 	return (
 		<Container className={styles.blog}>
-			{/* <div className={styles.breadcrumb}>
-				<Link href="/" className={styles.home}>
-					Home
-				</Link>
-				<FontAwesomeIcon icon={faAngleRight} />
-				<Link href="/blogs">Blogs</Link>
-			</div> */}
 			<div className={styles.main}>
 				<h1>{blogItem.title}</h1>
 
