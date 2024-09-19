@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "./../../../components/Hero/page";
+import Hero from "@/components/Hero/Hero";
 import Container from "@/components/Container/Container";
 import styles from "./page.module.scss";
 

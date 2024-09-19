@@ -110,7 +110,7 @@ export const rootLinks = {
 	},
 	callForExpressionOfInterest: {
 		title: "Appel A Manifestation D'intérêt",
-		link: "/opportunites/appel-a-manifestation-d-intérêt",
+		link: "/opportunites/appel-a-manifestation-d-interet",
 	},
 	theMinistry: {
 		title: "Le Ministère",

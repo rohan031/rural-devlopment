@@ -1,13 +1,13 @@
 import { rootLinks } from "./navigation";
 
 export const categoryMap = {
-	"Appels d'offres": rootLinks.callForTenders.link,
+	"Appels d'offres": rootLinks.callForTenders,
 	"Appel à Manifestation d’Intérêt (AMI)":
-		rootLinks.callForExpressionOfInterest.link,
-	Contrats: rootLinks.contracts.link,
-	"Contrat De Travaux": rootLinks.contractsForGoods.link,
-	"Contrat Des Services": rootLinks.serviceContracts.link,
-	"Contrats Des Biens": rootLinks.worksContracts.link,
+		rootLinks.callForExpressionOfInterest,
+	Contrats: rootLinks.contracts,
+	"Contrat De Travaux": rootLinks.contractsForGoods,
+	"Contrat Des Services": rootLinks.serviceContracts,
+	"Contrats Des Biens": rootLinks.worksContracts,
 };
 
 export const categoryIdMap = {
@@ -19,3 +19,18 @@ export const categoryIdMap = {
 	"Contrat Des Services": "f1681c27-b162-4b0f-892b-8fa6fb93633e",
 	"Contrats Des Biens": "aad3e65c-d365-41d6-9b41-4b9424d5df28",
 };
+
+interface CategroyDetail {
+	id: string;
+	name: string;
+}
+
+export interface Blog {
+	title: string;
+	summary?: string;
+	author: string;
+	blogId: string;
+	createdAt: string;
+	cover: string;
+	category: CategroyDetail;
+}
