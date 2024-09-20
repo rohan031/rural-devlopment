@@ -39,8 +39,9 @@ export interface Photos {
 
 const page = async ({ params }: { params: { albumId: string } }) => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/gallery/album/${params.albumId}`;
+	const nameUrl = `${process.env.NEXT_PUBLIC_API}/services/gallery/album/${params.albumId}/name`;
 
-	const photos: Photos[] | null = await fetch(url, {
+	const photosPromise = fetch(url, {
 		method: "GET",
 		headers: {
 			Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
@@ -50,16 +51,34 @@ const page = async ({ params }: { params: { albumId: string } }) => {
 		.then((res) => {
 			if (res.error) throw new Error(res.message);
 			return res.data;
-		})
-		.catch((err) => {
-			console.error(err.message);
-			return null;
 		});
+	const namePromise = fetch(nameUrl, {
+		method: "GET",
+		headers: {
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+		},
+	})
+		.then((res) => res.json())
+		.then((res) => {
+			if (res.error) throw new Error(res.message);
+			return res.data;
+		});
+
+	const [photosResult, nameResult] = await Promise.allSettled([
+		photosPromise,
+		namePromise,
+	]);
+
+	const photos: Photos[] | null =
+		photosResult.status === "fulfilled" ? photosResult.value : null;
+
+	const name: string | null =
+		nameResult.status === "fulfilled" ? nameResult.value : null;
 
 	if (!photos) {
 		return (
 			<>
-				<Hero heading={rootLinks.infrastructureDevelopment.title} />
+				<Hero heading={name ?? ""} />
 
 				<Container
 					style={{
@@ -80,7 +99,7 @@ const page = async ({ params }: { params: { albumId: string } }) => {
 
 	return (
 		<>
-			<Hero heading={rootLinks.infrastructureDevelopment.title} />
+			<Hero heading={name ?? ""} />
 
 			<ImageList hasMore={hasMore} cursor={cursor} url={url}>
 				<div>
