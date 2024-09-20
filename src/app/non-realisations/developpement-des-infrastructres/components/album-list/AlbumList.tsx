@@ -1,29 +1,28 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import Container from "../Container/Container";
-import styles from "./blogList.module.scss";
-import { Blog } from "@/data/blog-category";
+import { Album } from "../../page";
 import { useIntersection } from "@/hooks/intersetion-observer/intersection-observer";
-import ListItem from "./ListItem";
 import { LIMIT } from "@/data/helper";
-import Loader from "../Loader/Loader";
+import Container from "@/components/Container/Container";
+import Loader from "@/components/Loader/Loader";
+import styles from "./albumList.module.scss";
+import AlbumItem from "./AlbumItem";
 
-interface BlogListProps {
+interface AlbumListProps {
 	children: React.ReactNode;
 	hasMore: boolean;
 	url: string;
 	cursor: string;
 }
 
-const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
-	const [moreBlogs, setMoreblogs] = useState<Blog[]>([]);
+const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
+	const [moreAlbums, setMoreAlbums] = useState<Album[]>([]);
 	const hasMoreRef = useRef<boolean>(hasMore);
 	const cursorRef = useRef<string>(cursor);
-
 	const [loading, setLoading] = useState<boolean>(false);
 
-	const fetchMoreBlogs = async () => {
+	const fetchMoreAlbums = async () => {
 		if (!hasMoreRef.current || loading) return;
 
 		setLoading(true);
@@ -50,15 +49,14 @@ const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
 				if (len <= 0) return;
 
 				cursorRef.current = res.data[len - 1].createdAt;
-				setMoreblogs((prev) => {
-					const newBlogs = res.data.filter(
-						(blog: Blog) =>
+				setMoreAlbums((prev) => {
+					const newAlbums = res.data.filter(
+						(album: Album) =>
 							!prev.some(
-								(existingBlog) =>
-									existingBlog.blogId === blog.blogId
+								(exitingAlbum) => exitingAlbum.id === album.id
 							)
 					);
-					return [...prev, ...newBlogs];
+					return [...prev, ...newAlbums];
 				});
 			})
 			.catch((err) => {
@@ -71,7 +69,7 @@ const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
 		(entries, observer) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					fetchMoreBlogs();
+					fetchMoreAlbums();
 				}
 			});
 		},
@@ -84,15 +82,11 @@ const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
 		<>
 			<Container className={styles.container}>
 				{children}
-				{moreBlogs.length > 0 &&
-					moreBlogs.map((item) => {
-						return (
-							<ListItem
-								key={item.blogId}
-								details={item}
-							></ListItem>
-						);
-					})}
+
+				{moreAlbums.map((item) => {
+					return <AlbumItem key={item.id} details={item} />;
+				})}
+
 				<div
 					style={{
 						visibility: "hidden",
@@ -106,4 +100,4 @@ const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
 	);
 };
 
-export default BlogList;
+export default AlbumList;

@@ -10,7 +10,7 @@ const page = ({ heading }: itemProps) => {
 	return (
 		<div className={styles.hero}>
 			<Container>
-				<h1>{heading}</h1>
+				<h1>{heading.toUpperCase()}</h1>
 			</Container>
 		</div>
 	);
