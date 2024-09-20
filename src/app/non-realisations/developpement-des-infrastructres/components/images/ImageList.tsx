@@ -1,28 +1,27 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import { Album } from "../../page";
+import { Photos } from "../../[albumId]/page";
+import Container from "@/components/Container/Container";
+import styles from "./imageList.module.scss";
+import Loader from "@/components/Loader/Loader";
 import { useIntersection } from "@/hooks/intersetion-observer/intersection-observer";
 import { LIMIT } from "@/data/helper";
-import Container from "@/components/Container/Container";
-import Loader from "@/components/Loader/Loader";
-import styles from "./albumList.module.scss";
-import AlbumItem from "./AlbumItem";
 
-interface AlbumListProps {
+interface ImageListProps {
 	children: React.ReactNode;
 	hasMore: boolean;
 	url: string;
 	cursor: string;
 }
 
-const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
-	const [moreAlbums, setMoreAlbums] = useState<Album[]>([]);
+const ImageList = ({ children, hasMore, url, cursor }: ImageListProps) => {
+	const [morePhotos, setMorePhotos] = useState<Photos[][]>([]);
 	const hasMoreRef = useRef<boolean>(hasMore);
 	const cursorRef = useRef<string>(cursor);
 	const [loading, setLoading] = useState<boolean>(false);
 
-	const fetchMoreAlbums = async () => {
+	const fetchMoreImages = async () => {
 		if (!hasMoreRef.current || loading) return;
 
 		setLoading(true);
@@ -49,18 +48,14 @@ const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
 				if (len <= 0) return;
 
 				cursorRef.current = res.data[len - 1].createdAt;
-				setMoreAlbums((prev) => {
-					const newAlbums = res.data.filter(
-						(album: Album) =>
-							!prev.some(
-								(exitingAlbum) => exitingAlbum.id === album.id
-							)
-					);
-					return [...prev, ...newAlbums];
+				setMorePhotos((prev) => {
+					if (prev.length === 0) return [res.data];
+
+					return [...prev, res.data];
 				});
 			})
 			.catch((err) => {
-				console.error("can't fetch more albums");
+				console.error("can't fetch more images");
 			})
 			.finally(() => setLoading(false));
 	};
@@ -69,7 +64,7 @@ const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
 		(entries, observer) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					fetchMoreAlbums();
+					fetchMoreImages();
 				}
 			});
 		},
@@ -83,8 +78,22 @@ const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
 			<Container className={styles.container}>
 				{children}
 
-				{moreAlbums.map((item) => {
-					return <AlbumItem key={item.id} details={item} />;
+				{morePhotos.map((pictures, ind) => {
+					return (
+						<div key={`all-pictures${ind}${pictures.length}`}>
+							{pictures.map((item) => {
+								return (
+									<a
+										key={item.id}
+										href={item.image}
+										target="_blank"
+									>
+										<img src={item.image} alt="" />
+									</a>
+								);
+							})}
+						</div>
+					);
 				})}
 
 				<div
@@ -100,4 +109,4 @@ const AlbumList = ({ children, hasMore, url, cursor }: AlbumListProps) => {
 	);
 };
 
-export default AlbumList;
+export default ImageList;
