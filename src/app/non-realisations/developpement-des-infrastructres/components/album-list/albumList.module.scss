@@ -17,7 +17,7 @@
 		&::before {
 			content: "";
 			position: absolute;
-			background-color: hsl(0 0% 0% / var(--_o));
+			background-color: hsl(from var(--active) h s l/ var(--_o));
 			border-radius: var(--_radius);
 			inset: 0;
 			z-index: 1;
@@ -26,7 +26,7 @@
 		}
 
 		&:hover {
-			--_o: 0.35;
+			--_o: 0.25;
 			--_s: 1.1;
 		}
 
