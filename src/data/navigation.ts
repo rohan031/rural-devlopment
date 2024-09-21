@@ -32,7 +32,7 @@ export const rootLinks = {
 		title: "Kasaï Oriental",
 		link: "/repertoire-ouvrages/kasai-oriental",
 	},
-	Loamani: {
+	Loamami: {
 		title: "Lomami",
 		link: "/repertoire-ouvrages/lomami",
 	},
@@ -152,7 +152,7 @@ export const navBarLinks: NavBarLinks[] = [
 			rootLinks.kasai,
 			rootLinks.kasaiCentral,
 			rootLinks.kasaiEastern,
-			rootLinks.Loamani,
+			rootLinks.Loamami,
 			rootLinks.sankuru,
 			rootLinks.hautLomami,
 			rootLinks.kwango,
