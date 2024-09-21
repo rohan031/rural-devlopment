@@ -1,0 +1,23 @@
+@use "/src/styles/abstracts" as ab;
+
+.item {
+	display: grid;
+	gap: 1rem;
+
+	.image {
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+		border-radius: 0.75rem;
+		padding: 2.5rem 2rem;
+
+		img {
+			margin-inline: auto;
+		}
+	}
+
+	.info {
+		a {
+			font-weight: 600;
+		}
+	}
+}
