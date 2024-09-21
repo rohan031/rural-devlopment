@@ -1,0 +1,13 @@
+@use "/src/styles/abstracts" as ab;
+
+.empty {
+	display: grid;
+	place-items: center;
+
+	height: 20rem;
+}
+
+.container {
+	display: grid;
+	gap: 5rem;
+}

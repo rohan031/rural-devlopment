@@ -49,6 +49,8 @@
 
 	.main {
 		margin-block-end: 2em;
+		display: grid;
+		gap: 1.5em;
 
 		h1 {
 			font-size: clamp(1.25rem, 1.75vi, 1.5rem);

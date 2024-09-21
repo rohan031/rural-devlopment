@@ -1,21 +1,10 @@
 import React from "react";
 import styles from "./blogId.module.scss";
-import "./blog.scss";
+import "@/styles/abstracts/blog.scss";
 import SocialShare from "@/components/socialShare/SocialShare";
 import Link from "next/link";
 import Container from "@/components/Container/Container";
-import { categoryMap } from "@/data/blog-category";
-
-export interface BlogItem {
-	blogId: string;
-	title: string;
-	content: string;
-	author: string;
-	createdAt: string;
-	updatedAt: string;
-	cover: string;
-	category: string;
-}
+import { categoryMap, BlogItem } from "@/data/blog-category";
 
 export const revalidate = 604800;
 
@@ -42,7 +31,7 @@ export async function generateStaticParams() {
 	});
 }
 
-const BlogItem = async ({ params }: { params: { blogId: string } }) => {
+const BlogItemPage = async ({ params }: { params: { blogId: string } }) => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/blog/${params.blogId}`;
 
 	const blogItem: BlogItem | null = await fetch(url, {
@@ -70,7 +59,7 @@ const BlogItem = async ({ params }: { params: { blogId: string } }) => {
 	}
 
 	let blogHTML = {
-		__html: blogItem ? blogItem.content : "blog not found",
+		__html: blogItem.content,
 	};
 
 	let createdAt = new Date();
@@ -126,4 +115,4 @@ const BlogItem = async ({ params }: { params: { blogId: string } }) => {
 	);
 };
 
-export default BlogItem;
+export default BlogItemPage;

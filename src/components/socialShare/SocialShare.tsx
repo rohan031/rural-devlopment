@@ -34,7 +34,7 @@ const SocialShare = ({ title }: SocialShareProps) => {
 			</a>
 
 			<a
-				href={`https://twitter.com/intent/tweet?url=${url}&text=${title}&via=ecrimino.com&hashtags=ecrimino`}
+				href={`https://twitter.com/intent/tweet?url=${url}&text=${title}&via=adgytec.in&hashtags=adgytec`}
 				target="_blank"
 				className={styles.twitter}
 			>

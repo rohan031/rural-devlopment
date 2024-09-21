@@ -34,3 +34,14 @@ export interface Blog {
 	cover: string;
 	category: CategroyDetail;
 }
+
+export interface BlogItem {
+	blogId: string;
+	title: string;
+	content: string;
+	author: string;
+	createdAt: string;
+	updatedAt: string;
+	cover: string;
+	category: string;
+}
