@@ -87,7 +87,7 @@ const BlogItemPage = async ({ params }: { params: { blogId: string } }) => {
 						href={
 							categoryMap[
 								blogItem.category as keyof typeof categoryMap
-							].link ?? ""
+							]?.link ?? ""
 						}
 						data-type="link"
 						data-variant="secondary"
