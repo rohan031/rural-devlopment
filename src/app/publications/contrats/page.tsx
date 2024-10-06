@@ -6,8 +6,7 @@ import { Blog, categoryIdMap, categoryMap } from "@/data/blog-category";
 import { LIMIT } from "@/data/helper";
 import React from "react";
 
-// export const revalidate = 604800;
-export const revalidate = 10;
+export const revalidate = 604800;
 
 const category = "Contrats";
 
