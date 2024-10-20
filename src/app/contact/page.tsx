@@ -122,6 +122,7 @@ const Contact = () => {
 			headers: {
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
 			},
+			body: JSON.stringify(inputs),
 		})
 			.then((res) => res.json())
 			.then((res) => {
