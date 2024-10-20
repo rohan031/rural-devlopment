@@ -121,6 +121,7 @@ const Contact = () => {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+				"Content-type": "application/json; charset=UTF-8",
 			},
 			body: JSON.stringify(inputs),
 		})
