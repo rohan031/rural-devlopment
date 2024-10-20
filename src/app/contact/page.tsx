@@ -130,7 +130,7 @@ const Contact = () => {
 				toast.success(res.message);
 			})
 			.catch((err) => {
-				toast.error("error submitting your details");
+				toast.error(err.message);
 			})
 			.finally(() => setUploading(false));
 	};
