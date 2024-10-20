@@ -5,6 +5,9 @@ import Navigation from "@/components/Navigation/Navigation";
 import ViewPort from "@/components/ViewPort/ViewPort";
 import Footer from "@/components/Footer/Footer";
 
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,6 +28,21 @@ export default function RootLayout({
 				<Footer />
 
 				<ViewPort />
+				<ToastContainer
+					stacked
+					position="bottom-right"
+					autoClose={5000}
+					limit={10}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="dark"
+					transition={Bounce}
+				/>
 			</body>
 		</html>
 	);

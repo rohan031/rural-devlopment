@@ -4,6 +4,8 @@ import styles from "./page.module.scss";
 import Container from "@/components/Container/Container";
 import Image from "next/image";
 import { address, email, phone } from "@/data/navigation";
+import Loader from "@/components/Loader/Loader";
+import { toast } from "react-toastify";
 
 const data = {
 	heading: "CONTACTEZ-NOUS",
@@ -45,6 +47,7 @@ const Contact = () => {
 	});
 
 	const [errors, setErrors] = useState<Partial<Inputs>>({});
+	const [uploading, setUploading] = useState(false);
 
 	const handleChange = (
 		event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -111,6 +114,25 @@ const Contact = () => {
 		if (nameError || numberError || emailError || messageError) {
 			return;
 		}
+
+		const url = `${process.env.NEXT_PUBLIC_API}/services/contact-us`;
+		setUploading(true);
+		fetch(url, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+			},
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				if (res.error) throw new Error(res.message);
+				setInputs({ name: "", number: "", emailId: "", message: "" });
+				toast.success(res.message);
+			})
+			.catch((err) => {
+				toast.error("error submitting your details");
+			})
+			.finally(() => setUploading(false));
 	};
 
 	return (
@@ -192,6 +214,7 @@ const Contact = () => {
 								placeholder="Name"
 								value={inputs.name || ""}
 								onChange={handleChange}
+								disabled={uploading}
 							/>
 							{errors.name && (
 								<p className="error">{errors.name}</p>
@@ -204,6 +227,7 @@ const Contact = () => {
 								placeholder="Phone"
 								value={inputs.number || ""}
 								onChange={handleChange}
+								disabled={uploading}
 							/>
 							{errors.number && (
 								<p className="error">{errors.number}</p>
@@ -216,6 +240,7 @@ const Contact = () => {
 								placeholder="Email"
 								value={inputs.emailId || ""}
 								onChange={handleChange}
+								disabled={uploading}
 							/>
 							{errors.emailId && (
 								<p className="error">{errors.emailId}</p>
@@ -227,6 +252,7 @@ const Contact = () => {
 								placeholder="Message"
 								value={inputs.message || ""}
 								onChange={handleChange}
+								disabled={uploading}
 							/>
 							{errors.message && (
 								<p className="error">{errors.message}</p>
@@ -238,8 +264,14 @@ const Contact = () => {
 								type="submit"
 								data-type="button"
 								data-variant="primary"
+								disabled={uploading}
+								data-load={uploading}
 							>
-								Submit
+								{uploading ? (
+									<Loader variant="small" />
+								) : (
+									"Submit"
+								)}
 							</button>
 						</div>
 					</form>

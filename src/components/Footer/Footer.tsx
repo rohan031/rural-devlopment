@@ -87,6 +87,19 @@ const Footer = () => {
 				<p>
 					Copyright © {today.getFullYear()} , Project Prise All rights
 					reserved.
+					<br />
+					Powered by{" "}
+					<a
+						href="https://adgytec.in"
+						target="_blank"
+						style={{
+							color: "hsl(51, 100%, 50%)",
+							fontWeight: "bold",
+						}}
+					>
+						Adgytec
+					</a>
+					.
 				</p>
 			</Container>
 		</footer>
