@@ -224,7 +224,7 @@ const Contact = () => {
 						</div>
 						<div className={styles.input}>
 							<input
-								name="number"
+								name="phone"
 								type="text"
 								placeholder="Phone"
 								value={inputs.phone || ""}
@@ -237,7 +237,7 @@ const Contact = () => {
 						</div>
 						<div className={styles.input}>
 							<input
-								name="emailId"
+								name="email"
 								type="text"
 								placeholder="Email"
 								value={inputs.email || ""}
