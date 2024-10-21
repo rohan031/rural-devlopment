@@ -13,8 +13,8 @@ const data = {
 
 interface Inputs {
 	name: string;
-	number: string;
-	emailId: string;
+	phone: string;
+	email: string;
 	message: string;
 }
 
@@ -41,8 +41,8 @@ const validateMessage = (message: string) => {
 const Contact = () => {
 	const [inputs, setInputs] = useState<Inputs>({
 		name: "",
-		number: "",
-		emailId: "",
+		phone: "",
+		email: "",
 		message: "",
 	});
 
@@ -94,10 +94,10 @@ const Contact = () => {
 		const nameError = !validateName(inputs.name)
 			? "Invalid name. Please enter a valid name."
 			: "";
-		const numberError = !validatePhoneNumber(inputs.number)
+		const numberError = !validatePhoneNumber(inputs.phone)
 			? "Invalid phone number. Must be 10-12 digits."
 			: "";
-		const emailError = !validateEmail(inputs.emailId)
+		const emailError = !validateEmail(inputs.email)
 			? "Invalid email address."
 			: "";
 		const messageError = !validateMessage(inputs.message)
@@ -106,8 +106,8 @@ const Contact = () => {
 
 		setErrors({
 			name: nameError,
-			number: numberError,
-			emailId: emailError,
+			phone: numberError,
+			email: emailError,
 			message: messageError,
 		});
 
@@ -128,7 +128,7 @@ const Contact = () => {
 			.then((res) => res.json())
 			.then((res) => {
 				if (res.error) throw new Error(res.message);
-				setInputs({ name: "", number: "", emailId: "", message: "" });
+				setInputs({ name: "", phone: "", email: "", message: "" });
 				toast.success(res.message);
 			})
 			.catch((err) => {
@@ -227,12 +227,12 @@ const Contact = () => {
 								name="number"
 								type="text"
 								placeholder="Phone"
-								value={inputs.number || ""}
+								value={inputs.phone || ""}
 								onChange={handleChange}
 								disabled={uploading}
 							/>
-							{errors.number && (
-								<p className="error">{errors.number}</p>
+							{errors.phone && (
+								<p className="error">{errors.phone}</p>
 							)}
 						</div>
 						<div className={styles.input}>
@@ -240,12 +240,12 @@ const Contact = () => {
 								name="emailId"
 								type="text"
 								placeholder="Email"
-								value={inputs.emailId || ""}
+								value={inputs.email || ""}
 								onChange={handleChange}
 								disabled={uploading}
 							/>
-							{errors.emailId && (
-								<p className="error">{errors.emailId}</p>
+							{errors.email && (
+								<p className="error">{errors.email}</p>
 							)}
 						</div>
 						<div className={styles.input}>
