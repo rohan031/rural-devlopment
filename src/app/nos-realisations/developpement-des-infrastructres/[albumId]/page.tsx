@@ -1,10 +1,10 @@
 import Hero from "@/components/Hero/Hero";
 import React from "react";
-import { Album } from "../page";
 import Container from "@/components/Container/Container";
 import { LIMIT } from "@/data/helper";
 import ImageList from "../components/images/ImageList";
 import { rootLinks } from "@/data/navigation";
+import { Album } from "../phase-1/page";
 
 export const revalidate = 604800;
 
@@ -88,6 +88,24 @@ const page = async ({ params }: { params: { albumId: string } }) => {
 					}}
 				>
 					<h4>Oops! Something went wrong.</h4>
+				</Container>
+			</>
+		);
+	}
+
+	if (photos.length === 0) {
+		return (
+			<>
+				<Hero heading={name ?? ""} />
+
+				<Container
+					style={{
+						height: "20rem",
+						display: "grid",
+						placeItems: "center",
+					}}
+				>
+					<h4>There are no photos in {name ?? "this album"}.</h4>
 				</Container>
 			</>
 		);

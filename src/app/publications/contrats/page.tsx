@@ -53,6 +53,28 @@ const ContratsPage = async () => {
 		);
 	}
 
+	if (blogs.length === 0) {
+		return (
+			<>
+				<Hero
+					heading={
+						categoryMap[category as keyof typeof categoryMap].title
+					}
+				/>
+
+				<Container
+					style={{
+						height: "20rem",
+						display: "grid",
+						placeItems: "center",
+					}}
+				>
+					<h4>There are no items here.</h4>
+				</Container>
+			</>
+		);
+	}
+
 	const hasMore = blogs.length === LIMIT;
 	let len = blogs.length;
 	const cursor = blogs[len - 1].createdAt;

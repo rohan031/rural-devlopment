@@ -62,7 +62,15 @@ export const rootLinks = {
 	},
 	infrastructureDevelopment: {
 		title: "Developpement des Infrastructres",
-		link: "/nos-realisations/developpement-des-infrastructres",
+		// link: "/nos-realisations/developpement-des-infrastructres",
+	},
+	infrastructureDevelopmentPhase1: {
+		title: "Phase I",
+		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
+	},
+	infrastructureDevelopmentPhase2: {
+		title: "Phase II",
+		link: "/nos-realisations/developpement-des-infrastructres/phase-2",
 	},
 	studiesAndCapacityBuilding: {
 		title: "Etudes et Reforcement des Capacites",
@@ -165,7 +173,13 @@ export const navBarLinks: NavBarLinks[] = [
 		title: "Nos Réalisations",
 		active: "/nos-realisations",
 		links: [
-			rootLinks.infrastructureDevelopment,
+			{
+				...rootLinks.infrastructureDevelopment,
+				links: [
+					rootLinks.infrastructureDevelopmentPhase1,
+					rootLinks.infrastructureDevelopmentPhase2,
+				],
+			},
 			rootLinks.studiesAndCapacityBuilding,
 			rootLinks.projectCoordinationAndManagement,
 		],
