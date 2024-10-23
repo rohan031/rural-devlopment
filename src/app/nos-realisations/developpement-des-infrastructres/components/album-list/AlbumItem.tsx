@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "./albumList.module.scss";
-import { Album } from "../../page";
 import Link from "next/link";
-import { rootLinks } from "@/data/navigation";
+import { galleryAlbum } from "@/data/navigation";
+import { Album } from "../../phase-1/page";
 
 interface AlbumItemProps {
 	details: Album;
 }
 
 const AlbumItem = ({ details }: AlbumItemProps) => {
-	const href = `${rootLinks.infrastructureDevelopment.link}/${details.id}`;
+	const href = `${galleryAlbum}/${details.id}`;
 
 	return (
 		<div className={styles.item}>

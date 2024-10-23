@@ -61,16 +61,15 @@ export const rootLinks = {
 		link: "/repertoire-ouvrages/maniema",
 	},
 	infrastructureDevelopment: {
-		title: "Developpement des Infrastructres",
-		// link: "/nos-realisations/developpement-des-infrastructres",
+		title: "Developement des Infrastructres",
 	},
 	infrastructureDevelopmentPhase1: {
 		title: "Phase I",
-		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
+		link: "/nos-realisations/developement-des-infrastructres/phase-1",
 	},
 	infrastructureDevelopmentPhase2: {
 		title: "Phase II",
-		link: "/nos-realisations/developpement-des-infrastructres/phase-2",
+		link: "/nos-realisations/developement-des-infrastructres/phase-2",
 	},
 	studiesAndCapacityBuilding: {
 		title: "Etudes et Reforcement des Capacites",
@@ -229,3 +228,4 @@ export const phone = ["(+243) 817 073 112", "(+243) 817 073 118"];
 export const email = ["projetpriserdc@prise-rdc.com"];
 export const address =
 	"Avenue Lukusa, n°111-112, croisement des avenues TSF et Lukusa,dans l'enceinte du secrétariat Général au Développement Rural";
+export const galleryAlbum = "/nos-realisations/developement-des-infrastructres";

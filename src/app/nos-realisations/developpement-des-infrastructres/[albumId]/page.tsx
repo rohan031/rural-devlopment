@@ -3,7 +3,6 @@ import React from "react";
 import Container from "@/components/Container/Container";
 import { LIMIT } from "@/data/helper";
 import ImageList from "../components/images/ImageList";
-import { rootLinks } from "@/data/navigation";
 import { Album } from "../phase-1/page";
 
 export const revalidate = 604800;

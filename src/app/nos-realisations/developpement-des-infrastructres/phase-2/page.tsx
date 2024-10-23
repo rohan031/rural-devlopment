@@ -5,15 +5,9 @@ import React from "react";
 import { LIMIT } from "@/data/helper";
 import AlbumItem from "../components/album-list/AlbumItem";
 import AlbumList from "../components/album-list/AlbumList";
+import { Album } from "../phase-1/page";
 
 export const revalidate = 604800;
-
-export interface Album {
-	id: string;
-	name: string;
-	cover: string;
-	createdAt: string;
-}
 
 const PhaseIPage = async () => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/gallery/albums`;

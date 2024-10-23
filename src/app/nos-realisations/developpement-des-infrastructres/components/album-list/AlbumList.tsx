@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import { Album } from "../../page";
+
 import { useIntersection } from "@/hooks/intersetion-observer/intersection-observer";
 import { LIMIT } from "@/data/helper";
 import Container from "@/components/Container/Container";
 import Loader from "@/components/Loader/Loader";
 import styles from "./albumList.module.scss";
 import AlbumItem from "./AlbumItem";
+import { Album } from "../../phase-1/page";
 
 interface AlbumListProps {
 	children: React.ReactNode;
