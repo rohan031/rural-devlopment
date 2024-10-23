@@ -5,9 +5,9 @@ export const categoryMap = {
 	"Appel à Manifestation d’Intérêt (AMI)":
 		rootLinks.callForExpressionOfInterest,
 	Contrats: rootLinks.contracts,
-	"Contrat De Travaux": rootLinks.contractsForGoods,
+	"Contrat De Travaux": rootLinks.worksContracts,
 	"Contrat Des Services": rootLinks.serviceContracts,
-	"Contrats Des Biens": rootLinks.worksContracts,
+	"Contrats Des Biens": rootLinks.contractsForGoods,
 };
 
 export const categoryIdMap = {
