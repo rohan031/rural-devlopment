@@ -62,15 +62,15 @@ export const rootLinks = {
 	},
 	infrastructureDevelopment: {
 		title: "Developpement Des Infrastructres",
-		link: "/non-realisations/developpement-des-infrastructres",
+		link: "/nos-realisations/developpement-des-infrastructres",
 	},
 	studiesAndCapacityBuilding: {
 		title: "Etudes et Reforcement des Capacites",
-		link: "/non-realisations/etudes-et-reforcement-des-capacites",
+		link: "/nos-realisations/etudes-et-reforcement-des-capacites",
 	},
 	projectCoordinationAndManagement: {
 		title: "Coordination et Gestion du Projet",
-		link: "/non-realisations/coordination-et-gestion-du-projet",
+		link: "/nos-realisations/coordination-et-gestion-du-projet",
 	},
 	annualReports: {
 		title: "Rapports Annuels",
@@ -162,8 +162,8 @@ export const navBarLinks: NavBarLinks[] = [
 		],
 	},
 	{
-		title: "Non Réalisations",
-		active: "/non-realisations",
+		title: "Nos Réalisations",
+		active: "/nos-realisations",
 		links: [
 			rootLinks.infrastructureDevelopment,
 			rootLinks.studiesAndCapacityBuilding,
