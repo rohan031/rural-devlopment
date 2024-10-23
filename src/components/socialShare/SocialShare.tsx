@@ -24,54 +24,57 @@ const SocialShare = ({ title }: SocialShareProps) => {
 
 	const emailBody = `Hey check this out at: ${url}`;
 	return (
-		<div className={styles.social}>
-			<a
-				href={`https://www.facebook.com/sharer.php?u=${url}`}
-				target="_blank"
-				className={styles.facebook}
-			>
-				<FontAwesomeIcon icon={faFacebookF} />
-			</a>
+		<div className={styles.social_parent}>
+			<h4>Share</h4>
+			<div className={styles.social}>
+				<a
+					href={`https://www.facebook.com/sharer.php?u=${url}`}
+					target="_blank"
+					className={styles.facebook}
+				>
+					<FontAwesomeIcon icon={faFacebookF} />
+				</a>
 
-			<a
-				href={`https://twitter.com/intent/tweet?url=${url}&text=${title}&via=adgytec.in&hashtags=adgytec`}
-				target="_blank"
-				className={styles.twitter}
-			>
-				<FontAwesomeIcon icon={faXTwitter} />
-			</a>
+				<a
+					href={`https://twitter.com/intent/tweet?url=${url}&text=${title}&via=adgytec.in&hashtags=adgytec`}
+					target="_blank"
+					className={styles.twitter}
+				>
+					<FontAwesomeIcon icon={faXTwitter} />
+				</a>
 
-			<a
-				href={`whatsapp://send?text=${title}-${url}`}
-				target="_blank"
-				className={styles.whatsapp}
-			>
-				<FontAwesomeIcon icon={faWhatsapp} />
-			</a>
+				<a
+					href={`whatsapp://send?text=${title}-${url}`}
+					target="_blank"
+					className={styles.whatsapp}
+				>
+					<FontAwesomeIcon icon={faWhatsapp} />
+				</a>
 
-			<a
-				href={`https://reddit.com/submit?url=${url}&title=${title}`}
-				target="_blank"
-				className={styles.reddit}
-			>
-				<FontAwesomeIcon icon={faReddit} />
-			</a>
+				<a
+					href={`https://reddit.com/submit?url=${url}&title=${title}`}
+					target="_blank"
+					className={styles.reddit}
+				>
+					<FontAwesomeIcon icon={faReddit} />
+				</a>
 
-			<a
-				href={`https://www.linkedin.com/shareArticle?url=${url}&title=${title}`}
-				target="_blank"
-				className={styles.linkedin}
-			>
-				<FontAwesomeIcon icon={faLinkedinIn} />
-			</a>
+				<a
+					href={`https://www.linkedin.com/shareArticle?url=${url}&title=${title}`}
+					target="_blank"
+					className={styles.linkedin}
+				>
+					<FontAwesomeIcon icon={faLinkedinIn} />
+				</a>
 
-			<a
-				href={`mailto:?subject=${title}&body=${emailBody}`}
-				target="_blank"
-				className={styles.mail}
-			>
-				<FontAwesomeIcon icon={faEnvelope} />
-			</a>
+				<a
+					href={`mailto:?subject=${title}&body=${emailBody}`}
+					target="_blank"
+					className={styles.mail}
+				>
+					<FontAwesomeIcon icon={faEnvelope} />
+				</a>
+			</div>
 		</div>
 	);
 };
