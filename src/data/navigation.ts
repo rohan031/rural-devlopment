@@ -5,15 +5,15 @@ export const rootLinks = {
 		link: "/",
 	},
 	projectOverview: {
-		title: "Aperçu Du Project",
+		title: "Aperçu du Project",
 		link: "/a-propos/apercu-du-project",
 	},
 	backgroundAndRationale: {
-		title: "Contexte Et Justification",
+		title: "Contexte et Justification",
 		link: "/a-propos/contexte-et-justification",
 	},
 	overallAndSpecificObjective: {
-		title: "Objectif Global Et Spécifique",
+		title: "Objectif Global et Spécifique",
 		link: "/a-propos/objectif-global-et-specifique",
 	},
 	expectedResults: {
@@ -61,7 +61,7 @@ export const rootLinks = {
 		link: "/repertoire-ouvrages/maniema",
 	},
 	infrastructureDevelopment: {
-		title: "Developpement Des Infrastructres",
+		title: "Developpement des Infrastructres",
 		link: "/nos-realisations/developpement-des-infrastructres",
 	},
 	studiesAndCapacityBuilding: {
@@ -81,15 +81,15 @@ export const rootLinks = {
 		link: "/publications/contrats",
 	},
 	contractsForGoods: {
-		title: "Contrat Des Biens",
+		title: "Contrat des Biens",
 		link: "/publications/contrats/contrat-des-biens",
 	},
 	serviceContracts: {
-		title: "Contrat Des Services",
+		title: "Contrat des Services",
 		link: "/publications/contrats/contrat-des-services",
 	},
 	worksContracts: {
-		title: "Contrat De Travaux",
+		title: "Contrat de Travaux",
 		link: "/publications/contrats/contrat-de-travaux",
 	},
 	quarterlyProgressReports: {
