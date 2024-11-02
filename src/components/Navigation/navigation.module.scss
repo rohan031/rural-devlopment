@@ -131,6 +131,7 @@
 			position: fixed;
 			inset: 0;
 			overflow: auto;
+   overscroll-behavior: contain;
 
 			padding-block-end: var(--_pb);
 
