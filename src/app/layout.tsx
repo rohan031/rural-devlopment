@@ -9,6 +9,7 @@ import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 const inter = Inter({ subsets: ["latin"] });
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
 	title: "PRISE",
@@ -43,6 +44,7 @@ export default function RootLayout({
 					theme="dark"
 					transition={Bounce}
 				/>
+				<GoogleAnalytics gaId="G-SEQSKLN81N" />
 			</body>
 		</html>
 	);
