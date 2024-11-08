@@ -7,7 +7,7 @@ import AlbumItem from "../components/album-list/AlbumItem";
 import AlbumList from "../components/album-list/AlbumList";
 import { Album } from "../phase-1/page";
 
-export const revalidate = 604800;
+export const revalidate = 60 * 60;
 
 const PhaseIPage = async () => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/gallery/albums`;

@@ -8,7 +8,7 @@ import SocialShare from "@/components/socialShare/SocialShare";
 
 const blogId = "dc45b058-9035-4922-b6c5-c38293f2fa69";
 
-export const revalidate = 604800;
+export const revalidate = 60 * 60;
 
 const DifficultiesPage = async () => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/blog/${blogId}`;

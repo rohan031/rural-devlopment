@@ -6,7 +6,7 @@ import { LIMIT } from "@/data/helper";
 import AlbumItem from "../components/album-list/AlbumItem";
 import AlbumList from "../components/album-list/AlbumList";
 
-export const revalidate = 604800;
+export const revalidate = 60 * 60;
 
 export interface Album {
 	id: string;

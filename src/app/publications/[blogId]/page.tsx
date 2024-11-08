@@ -6,7 +6,7 @@ import Link from "next/link";
 import Container from "@/components/Container/Container";
 import { categoryMap, BlogItem } from "@/data/blog-category";
 
-export const revalidate = 604800;
+export const revalidate = 60 * 60;
 
 export const dynamicParams = true;
 
