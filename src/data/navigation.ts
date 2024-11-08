@@ -5,19 +5,19 @@ export const rootLinks = {
 		link: "/",
 	},
 	projectOverview: {
-		title: "Aperçu du Project",
+		title: "Aperçu du project",
 		link: "/a-propos/apercu-du-project",
 	},
 	backgroundAndRationale: {
-		title: "Contexte et Justification",
+		title: "Contexte et justification",
 		link: "/a-propos/contexte-et-justification",
 	},
 	overallAndSpecificObjective: {
-		title: "Objectif Global et Spécifique",
+		title: "Objectif global et spécifique",
 		link: "/a-propos/objectif-global-et-specifique",
 	},
 	expectedResults: {
-		title: "Résultats Attendus",
+		title: "Résultats attendus",
 		link: "/a-propos/resultats-attendus",
 	},
 	kasai: {
@@ -25,11 +25,11 @@ export const rootLinks = {
 		link: "/repertoire-ouvrages/kasai",
 	},
 	kasaiCentral: {
-		title: "Kasaï Central",
+		title: "Kasaï central",
 		link: "/repertoire-ouvrages/kasai-central",
 	},
 	kasaiEastern: {
-		title: "Kasaï Oriental",
+		title: "Kasaï oriental",
 		link: "/repertoire-ouvrages/kasai-oriental",
 	},
 	Loamami: {
@@ -61,23 +61,23 @@ export const rootLinks = {
 		link: "/repertoire-ouvrages/maniema",
 	},
 	infrastructureDevelopmentPhase1: {
-		title: "Phase I",
+		title: "Phase i",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
 	},
 	infrastructureDevelopmentPhase2: {
-		title: "Phase II",
+		title: "Phase ii",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-2",
 	},
 	studiesAndCapacityBuilding: {
-		title: "Etudes et Reforcement des Capacites",
+		title: "Etudes et reforcement des capacites",
 		link: "/nos-realisations/etudes-et-reforcement-des-capacites",
 	},
 	projectCoordinationAndManagement: {
-		title: "Coordination et Gestion du Projet",
+		title: "Coordination et gestion du projet",
 		link: "/nos-realisations/coordination-et-gestion-du-projet",
 	},
 	annualReports: {
-		title: "Rapports Annuels",
+		title: "Rapports annuels",
 		link: "/publications/rapports-annuels",
 	},
 	contracts: {
@@ -85,19 +85,19 @@ export const rootLinks = {
 		link: "/publications/contrats",
 	},
 	contractsForGoods: {
-		title: "Contrat des Biens",
+		title: "Contrat des biens",
 		link: "/publications/contrats/contrat-des-biens",
 	},
 	serviceContracts: {
-		title: "Contrat des Services",
+		title: "Contrat des services",
 		link: "/publications/contrats/contrat-des-services",
 	},
 	worksContracts: {
-		title: "Contrat de Travaux",
+		title: "Contrat de travaux",
 		link: "/publications/contrats/contrat-de-travaux",
 	},
 	quarterlyProgressReports: {
-		title: "Rapports D'avancement Trismestriels",
+		title: "Rapports d'avancement trismestriels",
 		link: "/publications/rapports-d-avancement-trismestriels",
 	},
 	difficulties: {
@@ -105,19 +105,19 @@ export const rootLinks = {
 		link: "/publications/difficultes",
 	},
 	callForTenders: {
-		title: "Appels D'offres",
+		title: "Appels d'offres",
 		link: "/opportunites/appels-d-offres",
 	},
 	noticeCallForApplications: {
-		title: "Avis Appel Candidature",
+		title: "Avis appel candidature",
 		link: "/opportunites/avis-appel-candidature",
 	},
 	callForExpressionOfInterest: {
-		title: "Appel A Manifestation D'intérêt",
+		title: "Appel a manifestation d'intérêt",
 		link: "/opportunites/appel-a-manifestation-d-interet",
 	},
 	theMinistry: {
-		title: "Le Ministère",
+		title: "Le ministère",
 		link: "/le-ministere",
 	},
 	contact: {
@@ -125,7 +125,7 @@ export const rootLinks = {
 		link: "/contact",
 	},
 	donate: {
-		title: "Faites Un Don Aujourd'hui",
+		title: "Faites un don aujourd'hui",
 		link: "/faire-un-don",
 	},
 };
@@ -140,7 +140,7 @@ export type NavBarLinks = {
 export const navBarLinks: NavBarLinks[] = [
 	// rootLinks.home,
 	{
-		title: "A Propos",
+		title: "A propos",
 		active: "/a-propos",
 		links: [
 			rootLinks.projectOverview,
@@ -166,11 +166,11 @@ export const navBarLinks: NavBarLinks[] = [
 		],
 	},
 	{
-		title: "Nos Réalisations",
+		title: "Nos réalisations",
 		active: "/nos-realisations",
 		links: [
 			{
-				title: "Développement des Infrastructres",
+				title: "Développement des infrastructres",
 				links: [
 					rootLinks.infrastructureDevelopmentPhase1,
 					rootLinks.infrastructureDevelopmentPhase2,
