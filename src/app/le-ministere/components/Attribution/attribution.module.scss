@@ -3,10 +3,13 @@
 .container {
 	.list {
 		list-style-type: "– ";
+		list-style-position: outside;
 	}
 
 	.sublist {
 		list-style-type: disc;
 		padding-block-start: 0.25em;
+
+		margin-inline-start: 1rem;
 	}
 }

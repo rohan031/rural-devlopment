@@ -10,7 +10,7 @@
 		display: grid;
 		gap: var(--_gap);
 
-		h2 {
+		> h2 {
 			text-align: center;
 			text-wrap: balance;
 		}
