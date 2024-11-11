@@ -61,11 +61,11 @@ export const rootLinks = {
 		link: "/repertoire-ouvrages/maniema",
 	},
 	infrastructureDevelopmentPhase1: {
-		title: "Phase i",
+		title: "Phase I",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
 	},
 	infrastructureDevelopmentPhase2: {
-		title: "Phase ii",
+		title: "Phase II",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-2",
 	},
 	studiesAndCapacityBuilding: {
