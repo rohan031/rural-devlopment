@@ -5,8 +5,8 @@ export const rootLinks = {
 		link: "/",
 	},
 	projectOverview: {
-		title: "Aperçu du project",
-		link: "/a-propos/apercu-du-project",
+		title: "Aperçu du projet",
+		link: "/a-propos/apercu-du-projet",
 	},
 	backgroundAndRationale: {
 		title: "Contexte et justification",

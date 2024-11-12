@@ -85,7 +85,7 @@ const Footer = () => {
 
 			<Container type="normal" className={styles.copyright}>
 				<p>
-					Copyright © {today.getFullYear()} , Project Prise All rights
+					Copyright © {today.getFullYear()} , Projet Prise All rights
 					reserved.
 					<br />
 					Powered by{" "}
