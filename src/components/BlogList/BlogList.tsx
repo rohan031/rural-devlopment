@@ -6,29 +6,28 @@ import styles from "./blogList.module.scss";
 import { Blog } from "@/data/blog-category";
 import { useIntersection } from "@/hooks/intersetion-observer/intersection-observer";
 import ListItem from "./ListItem";
-import { LIMIT } from "@/data/helper";
+import { LIMIT, PageInfo } from "@/data/helper";
 import Loader from "../Loader/Loader";
 
 interface BlogListProps {
 	children: React.ReactNode;
-	hasMore: boolean;
 	url: string;
-	cursor: string;
+	pageInfo: PageInfo;
 }
 
-const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
+const BlogList = ({ children, pageInfo, url }: BlogListProps) => {
 	const [moreBlogs, setMoreblogs] = useState<Blog[]>([]);
-	const hasMoreRef = useRef<boolean>(hasMore);
-	const cursorRef = useRef<string>(cursor);
+	const pageInfoRef = useRef<PageInfo>(pageInfo);
 
 	const [loading, setLoading] = useState<boolean>(false);
 
 	const fetchMoreBlogs = async () => {
-		if (!hasMoreRef.current || loading) return;
+		if (loading) return;
+		if (!pageInfoRef.current.nextPage) return;
 
 		setLoading(true);
 
-		let cursor = cursorRef.current;
+		let cursor = pageInfoRef.current.cursor;
 		let token = process.env.NEXT_PUBLIC_TOKEN;
 		const headers = {
 			Authorization: `Bearer ${token}`,
@@ -42,16 +41,10 @@ const BlogList = ({ children, hasMore, url, cursor }: BlogListProps) => {
 			.then((res) => res.json())
 			.then((res) => {
 				if (res.error) throw new Error(res.message);
-				let len = res.data.length;
-				if (len < LIMIT) {
-					hasMoreRef.current = false;
-				}
+				pageInfoRef.current = res.data.pageInfo;
 
-				if (len <= 0) return;
-
-				cursorRef.current = res.data[len - 1].createdAt;
 				setMoreblogs((prev) => {
-					const newBlogs = res.data.filter(
+					const newBlogs = res.data.blogs.filter(
 						(blog: Blog) =>
 							!prev.some(
 								(existingBlog) =>

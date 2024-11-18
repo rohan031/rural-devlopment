@@ -2,7 +2,7 @@ import Container from "@/components/Container/Container";
 import Hero from "@/components/Hero/Hero";
 import { rootLinks } from "@/data/navigation";
 import React from "react";
-import { LIMIT } from "@/data/helper";
+import { LIMIT, PageInfo } from "@/data/helper";
 import AlbumItem from "../components/album-list/AlbumItem";
 import AlbumList from "../components/album-list/AlbumList";
 import { Album } from "../phase-1/page";
@@ -12,6 +12,10 @@ export const revalidate = 60 * 60;
 const PhaseIPage = async () => {
 	const url = `${process.env.NEXT_PUBLIC_API}/services/gallery/albums`;
 
+	let pageInfo: PageInfo = {
+		nextPage: false,
+		cursor: "",
+	};
 	const albums: Album[] | null = await fetch(url, {
 		method: "GET",
 		headers: {
@@ -21,7 +25,8 @@ const PhaseIPage = async () => {
 		.then((res) => res.json())
 		.then((res) => {
 			if (res.error) throw new Error(res.message);
-			return res.data;
+			pageInfo = res.data.pageInfo;
+			return res.data.albums;
 		})
 		.catch((err) => {
 			console.error(err.message);
@@ -68,15 +73,11 @@ const PhaseIPage = async () => {
 		);
 	}
 
-	const hasMore = albums.length === LIMIT;
-	let len = albums.length;
-	const cursor = albums[len - 1].createdAt;
-
 	return (
 		<>
 			<Hero heading={rootLinks.infrastructureDevelopmentPhase2.title} />
 
-			<AlbumList url={url} cursor={cursor} hasMore={hasMore}>
+			<AlbumList url={url} pageInfo={pageInfo}>
 				{albums.map((item) => {
 					return <AlbumItem key={item.id} details={item} />;
 				})}

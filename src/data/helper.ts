@@ -6,3 +6,8 @@ export function displayTitle(str: string, maxLength = 150) {
 	}
 	return str;
 }
+
+export interface PageInfo {
+	nextPage: boolean;
+	cursor: string;
+}

@@ -6,27 +6,26 @@ import Container from "@/components/Container/Container";
 import styles from "./imageList.module.scss";
 import Loader from "@/components/Loader/Loader";
 import { useIntersection } from "@/hooks/intersetion-observer/intersection-observer";
-import { LIMIT } from "@/data/helper";
+import { LIMIT, PageInfo } from "@/data/helper";
 
 interface ImageListProps {
 	children: React.ReactNode;
-	hasMore: boolean;
+	pageInfo: PageInfo;
 	url: string;
-	cursor: string;
 }
 
-const ImageList = ({ children, hasMore, url, cursor }: ImageListProps) => {
+const ImageList = ({ children, pageInfo, url }: ImageListProps) => {
 	const [morePhotos, setMorePhotos] = useState<Photos[][]>([]);
-	const hasMoreRef = useRef<boolean>(hasMore);
-	const cursorRef = useRef<string>(cursor);
+	const pageInfoRef = useRef<PageInfo>(pageInfo);
 	const [loading, setLoading] = useState<boolean>(false);
 
 	const fetchMoreImages = async () => {
-		if (!hasMoreRef.current || loading) return;
+		if (loading) return;
+		if (!pageInfoRef.current.nextPage) return;
 
 		setLoading(true);
 
-		let cursor = cursorRef.current;
+		let cursor = pageInfoRef.current.cursor;
 		let token = process.env.NEXT_PUBLIC_TOKEN;
 		const headers = {
 			Authorization: `Bearer ${token}`,
@@ -40,18 +39,12 @@ const ImageList = ({ children, hasMore, url, cursor }: ImageListProps) => {
 			.then((res) => res.json())
 			.then((res) => {
 				if (res.error) throw new Error(res.message);
-				let len = res.data.length;
-				if (len < LIMIT) {
-					hasMoreRef.current = false;
-				}
+				pageInfoRef.current = res.data.pageInfo;
 
-				if (len <= 0) return;
-
-				cursorRef.current = res.data[len - 1].createdAt;
 				setMorePhotos((prev) => {
-					if (prev.length === 0) return [res.data];
+					if (prev.length === 0) return [res.data.photos];
 
-					return [...prev, res.data];
+					return [...prev, res.data.photos];
 				});
 			})
 			.catch((err) => {

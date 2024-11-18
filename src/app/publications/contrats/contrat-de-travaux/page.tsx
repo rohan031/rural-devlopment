@@ -3,7 +3,7 @@ import ListItem from "@/components/BlogList/ListItem";
 import Container from "@/components/Container/Container";
 import Hero from "@/components/Hero/Hero";
 import { Blog, categoryIdMap, categoryMap } from "@/data/blog-category";
-import { LIMIT } from "@/data/helper";
+import { LIMIT, PageInfo } from "@/data/helper";
 import React from "react";
 
 export const revalidate = 60 * 60;
@@ -15,6 +15,11 @@ const ContratsPage = async () => {
 		categoryIdMap[category as keyof typeof categoryIdMap]
 	}`;
 
+	let pageInfo: PageInfo = {
+		nextPage: false,
+		cursor: "",
+	};
+
 	const blogs: Blog[] | null = await fetch(url, {
 		method: "GET",
 		headers: {
@@ -24,7 +29,8 @@ const ContratsPage = async () => {
 		.then((res) => res.json())
 		.then((res) => {
 			if (res.error) throw new Error(res.message);
-			return res.data;
+			pageInfo = res.data.pageInfo;
+			return res.data.blogs;
 		})
 		.catch((err) => {
 			console.error(err.message);
@@ -75,10 +81,6 @@ const ContratsPage = async () => {
 		);
 	}
 
-	const hasMore = blogs.length === LIMIT;
-	let len = blogs.length;
-	const cursor = blogs[len - 1].createdAt;
-
 	return (
 		<>
 			<Hero
@@ -87,7 +89,7 @@ const ContratsPage = async () => {
 				}
 			/>
 
-			<BlogList hasMore={hasMore} url={url} cursor={cursor}>
+			<BlogList url={url} pageInfo={pageInfo}>
 				{blogs.map((item) => {
 					return (
 						<ListItem key={item.blogId} details={item}></ListItem>
