@@ -29,8 +29,7 @@ const ContratsPage = async () => {
 		.then((res) => res.json())
 		.then((res) => {
 			if (res.error) throw new Error(res.message);
-			console.log("page contrats response success");
-			console.log(res.data.pageInfo);
+
 			pageInfo = res.data.pageInfo;
 			return res.data.blogs;
 		})
@@ -82,9 +81,6 @@ const ContratsPage = async () => {
 			</>
 		);
 	}
-
-	console.log("page contrats sending to component");
-	console.log(pageInfo);
 
 	return (
 		<>
