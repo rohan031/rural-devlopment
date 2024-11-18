@@ -34,10 +34,11 @@
 }
 
 .editor-image {
-	object-fit: cover;
-	display: inline;
-	height: auto;
+	object-fit: contain;
+
 	width: min(100%, 50rem);
+	margin-inline: auto;
+	padding-block: 0.5rem;
 }
 
 // code when from toolbar
