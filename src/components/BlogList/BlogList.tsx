@@ -21,6 +21,9 @@ const BlogList = ({ children, pageInfo, url }: BlogListProps) => {
 
 	const [loading, setLoading] = useState<boolean>(false);
 
+	console.log("blog list");
+	console.log(pageInfo);
+
 	const fetchMoreBlogs = async () => {
 		if (loading) return;
 		if (!pageInfoRef.current.nextPage) return;
@@ -42,7 +45,6 @@ const BlogList = ({ children, pageInfo, url }: BlogListProps) => {
 			.then((res) => {
 				if (res.error) throw new Error(res.message);
 				pageInfoRef.current = res.data.pageInfo;
-
 				setMoreblogs((prev) => {
 					const newBlogs = res.data.blogs.filter(
 						(blog: Blog) =>
