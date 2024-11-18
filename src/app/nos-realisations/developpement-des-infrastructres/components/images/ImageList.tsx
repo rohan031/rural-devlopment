@@ -12,9 +12,15 @@ interface ImageListProps {
 	children: React.ReactNode;
 	pageInfo: PageInfo;
 	url: string;
+	phase2?: boolean;
 }
 
-const ImageList = ({ children, pageInfo, url }: ImageListProps) => {
+const ImageList = ({
+	children,
+	pageInfo,
+	url,
+	phase2 = false,
+}: ImageListProps) => {
 	const [morePhotos, setMorePhotos] = useState<Photos[][]>([]);
 	const pageInfoRef = useRef<PageInfo>(pageInfo);
 	const [loading, setLoading] = useState<boolean>(false);
@@ -26,7 +32,9 @@ const ImageList = ({ children, pageInfo, url }: ImageListProps) => {
 		setLoading(true);
 
 		let cursor = pageInfoRef.current.cursor;
-		let token = process.env.NEXT_PUBLIC_TOKEN;
+		let token = phase2
+			? process.env.NEXT_PUBLIC_TOKEN_PHASE_II
+			: process.env.NEXT_PUBLIC_TOKEN;
 		const headers = {
 			Authorization: `Bearer ${token}`,
 		};

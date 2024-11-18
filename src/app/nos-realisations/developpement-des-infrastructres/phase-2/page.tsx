@@ -77,9 +77,11 @@ const PhaseIPage = async () => {
 		<>
 			<Hero heading={rootLinks.infrastructureDevelopmentPhase2.title} />
 
-			<AlbumList url={url} pageInfo={pageInfo}>
+			<AlbumList phase2={true} url={url} pageInfo={pageInfo}>
 				{albums.map((item) => {
-					return <AlbumItem key={item.id} details={item} />;
+					return (
+						<AlbumItem phase2={true} key={item.id} details={item} />
+					);
 				})}
 			</AlbumList>
 		</>

@@ -14,9 +14,15 @@ interface AlbumListProps {
 	children: React.ReactNode;
 	pageInfo: PageInfo;
 	url: string;
+	phase2?: boolean;
 }
 
-const AlbumList = ({ children, url, pageInfo }: AlbumListProps) => {
+const AlbumList = ({
+	children,
+	url,
+	pageInfo,
+	phase2 = false,
+}: AlbumListProps) => {
 	const [moreAlbums, setMoreAlbums] = useState<Album[]>([]);
 	const pageInfoRef = useRef<PageInfo>(pageInfo);
 	const [loading, setLoading] = useState<boolean>(false);
@@ -28,7 +34,9 @@ const AlbumList = ({ children, url, pageInfo }: AlbumListProps) => {
 		setLoading(true);
 
 		let cursor = pageInfoRef.current.cursor;
-		let token = process.env.NEXT_PUBLIC_TOKEN;
+		let token = phase2
+			? process.env.NEXT_PUBLIC_TOKEN_PHASE_II
+			: process.env.NEXT_PUBLIC_TOKEN;
 		const headers = {
 			Authorization: `Bearer ${token}`,
 		};
@@ -78,7 +86,13 @@ const AlbumList = ({ children, url, pageInfo }: AlbumListProps) => {
 				{children}
 
 				{moreAlbums.map((item) => {
-					return <AlbumItem key={item.id} details={item} />;
+					return (
+						<AlbumItem
+							phase2={phase2}
+							key={item.id}
+							details={item}
+						/>
+					);
 				})}
 
 				<div
