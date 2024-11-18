@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 		},
 	}).then((res) => res.json());
 
-	if (blogs.error) {
+	if (blogs.error || !blogs) {
 		return [];
 	}
 

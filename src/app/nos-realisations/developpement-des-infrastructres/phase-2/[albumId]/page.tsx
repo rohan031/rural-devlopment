@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 		},
 	}).then((res) => res.json());
 
-	if (albums.error) {
+	if (albums.error || !albums) {
 		return [];
 	}
 
