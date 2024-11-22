@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const links = [
 	rootLinks.callForTenders,
-	rootLinks.noticeCallForApplications,
+	// rootLinks.noticeCallForApplications,
 	rootLinks.callForExpressionOfInterest,
 ];
 
