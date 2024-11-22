@@ -10,10 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const data = [
-	{
-		image: "/home/hero/hero-1.webp",
-		text: "Le Premier ministre salue l’efficacité de Déo Nsunzu, coordonnateur du projet PRISE",
-	},
+	// {
+	// 	image: "/home/hero/hero-1.webp",
+	// 	text: "Le Premier ministre salue l’efficacité de Déo Nsunzu, coordonnateur du projet PRISE",
+	// },
 	{
 		image: "/home/hero/hero-2.webp",
 		text: "Mission de suivi du pilotage du projet PRISE dansa le Grand Kasai conduite  par le Secretaire General du Ministere de Developpement Rural",
