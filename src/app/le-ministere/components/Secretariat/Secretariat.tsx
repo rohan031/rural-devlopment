@@ -3,7 +3,7 @@ import styles from "./secretariat.module.scss";
 import Image from "next/image";
 
 const data = {
-	heading: "The Ministry – Le Secretariat General",
+	heading: "Le Secretariat General",
 };
 
 interface List {
