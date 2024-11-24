@@ -8,6 +8,23 @@
 		font-size: 1.5rem;
 	}
 
+	.info {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.pagination {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+
+		svg {
+			font-size: 1.5rem;
+		}
+	}
+
 	.table {
 		display: grid;
 		column-gap: 1.5rem;
