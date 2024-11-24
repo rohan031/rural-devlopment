@@ -16,7 +16,7 @@ const data = [
 	// },
 	{
 		image: "/home/hero/hero-2.webp",
-		text: "Mission de suivi du pilotage du projet PRISE dansa le Grand Kasai conduite  par le Secretaire General du Ministere de Developpement Rural",
+		text: "Mission de suivi du pilotage du projet PRISE dans le Grand Kasai conduite  par le Secretaire General du Ministere de Developpement Rural",
 	},
 	{
 		image: "/home/hero/hero-3.webp",
