@@ -66,7 +66,7 @@ const TableVariant = ({ heading, data }: ReportTableProps) => {
 					<h4>N°</h4>
 					<h4>Site</h4>
 					<h4>Ouvrage</h4>
-					<h4>Lieu d'implantation</h4>
+					<h4>Lieu d&apos;implantation</h4>
 					<h4>Territoire</h4>
 					<h4>Secteur/Cité/Ville</h4>
 					<h4>Coordonnées</h4>

@@ -68,7 +68,7 @@ const Table = ({ heading, data }: ReportTableProps) => {
 					<h4>N°</h4>
 					<h4>Territoire</h4>
 					<h4>Secteur</h4>
-					<h4>Site d'intervention</h4>
+					<h4>Site d&apos;intervention</h4>
 					<h4>Infrastructures</h4>
 					<h4>Latitude</h4>
 					<h4>Longitude</h4>
