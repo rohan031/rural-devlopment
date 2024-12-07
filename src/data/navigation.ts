@@ -193,7 +193,7 @@ export const navBarLinks: NavBarLinks[] = [
 					rootLinks.worksContracts,
 				],
 			},
-			rootLinks.quarterlyProgressReports,
+			// rootLinks.quarterlyProgressReports,
 			rootLinks.difficulties,
 		],
 	},
@@ -202,7 +202,7 @@ export const navBarLinks: NavBarLinks[] = [
 		active: "/opportunites",
 		links: [
 			rootLinks.callForTenders,
-			rootLinks.noticeCallForApplications,
+			// rootLinks.noticeCallForApplications,
 			rootLinks.callForExpressionOfInterest,
 		],
 	},
