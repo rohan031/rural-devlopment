@@ -11,3 +11,8 @@ export interface PageInfo {
 	nextPage: boolean;
 	cursor: string;
 }
+
+export enum location {
+	hero = "hero",
+	diff = "diff",
+}

@@ -1,13 +1,26 @@
 @use "/src/styles/abstracts" as ab;
 
-.empty {
-	display: grid;
-	place-items: center;
-
-	height: 20rem;
-}
-
 .container {
-	display: grid;
-	gap: 5rem;
+	font-size: clamp(1rem, 1.25vi, 1.125rem);
+
+	ol {
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	ol > li {
+		font-weight: 700;
+		display: grid;
+		gap: 0.5rem;
+
+		ul {
+			font-weight: 400;
+			display: grid;
+			gap: 0.75rem;
+
+			li {
+				list-style-type: disc;
+			}
+		}
+	}
 }

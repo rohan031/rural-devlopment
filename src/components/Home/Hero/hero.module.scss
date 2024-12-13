@@ -63,9 +63,23 @@
 
 		object-fit: cover;
 
-		&[data-index="0"] {
-			object-position: center 25%;
+		&[data-location="diff"] {
+			--_opacity: 0.75;
+
+			background-image: linear-gradient(
+				to bottom right,
+				hsl(from var(--accent-secondary) h s l / var(--_opacity)),
+				hsl(from var(--accent-primary) h s l / var(--_opacity))
+			);
+
+			@include ab.screen-40 {
+				object-fit: contain;
+			}
 		}
+
+		// &[data-index="0"] {
+		// 	object-position: center 25%;
+		// }
 	}
 
 	.text {

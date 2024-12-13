@@ -8,39 +8,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import Container from "@/components/Container/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-
-const data = [
-	// {
-	// 	image: "/home/hero/hero-1.webp",
-	// 	text: "Le Premier ministre salue l’efficacité de Déo Nsunzu, coordonnateur du projet PRISE",
-	// },
-	{
-		image: "/home/hero/hero-2.webp",
-		text: "Mission de suivi du pilotage du projet PRISE dans le Grand Kasai conduite  par le Secretaire General du Ministere de Developpement Rural",
-	},
-	{
-		image: "/home/hero/hero-3.webp",
-		text: "Château d'eau de KATENDE , Au Kasaï Central",
-	},
-	{
-		image: "/home/hero/hero-4.webp",
-		text: "Château d'eau & Espaces à vivre a Luandanda, Au Kasaï Central",
-	},
-	{
-		image: "/home/hero/hero-5.webp",
-		text: "Château d'eau de lukalaba, Kasaï Oriental",
-	},
-];
+import { location } from "@/data/helper";
 
 interface ItemProps {
 	image: string;
 	text: string;
 	index: number;
+	location: location;
 }
-const Item = ({ image, text, index }: ItemProps) => {
+const Item = ({ image, text, index, location }: ItemProps) => {
 	return (
 		<div className={styles.item}>
-			<img src={image} data-index={index} />
+			<img data-location={location} src={image} />
 
 			<Container type="full" className={styles.text}>
 				<Container type="normal">
@@ -51,7 +30,15 @@ const Item = ({ image, text, index }: ItemProps) => {
 	);
 };
 
-const Hero = () => {
+interface HeroProps {
+	data: {
+		image: string;
+		text: string;
+	}[];
+	location: location;
+}
+
+const Hero = ({ data, location }: HeroProps) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
 	const scrollPrev = useCallback(() => {
@@ -69,6 +56,7 @@ const Hero = () => {
 				image={element.image}
 				text={element.text}
 				index={index}
+				location={location}
 			/>
 		);
 	});

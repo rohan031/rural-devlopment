@@ -5,9 +5,33 @@ import Project from "@/components/Home/Project/Project";
 import Video from "@/components/Home/Video/Video";
 import Word from "@/components/Home/Word/Word";
 import { Blog, categoryIdMap } from "@/data/blog-category";
+import { location } from "@/data/helper";
 import React from "react";
 
 export const revalidate = 60 * 60;
+
+const data = [
+	// {
+	// 	image: "/home/hero/hero-1.webp",
+	// 	text: "Le Premier ministre salue l’efficacité de Déo Nsunzu, coordonnateur du projet PRISE",
+	// },
+	{
+		image: "/home/hero/hero-2.webp",
+		text: "Mission de suivi du pilotage du projet PRISE dans le Grand Kasai conduite  par le Secretaire General du Ministere de Developpement Rural",
+	},
+	{
+		image: "/home/hero/hero-3.webp",
+		text: "Château d'eau de KATENDE , Au Kasaï Central",
+	},
+	{
+		image: "/home/hero/hero-4.webp",
+		text: "Château d'eau & Espaces à vivre a Luandanda, Au Kasaï Central",
+	},
+	{
+		image: "/home/hero/hero-5.webp",
+		text: "Château d'eau de lukalaba, Kasaï Oriental",
+	},
+];
 
 const limit = 3;
 
@@ -47,7 +71,7 @@ const Home = async () => {
 
 	return (
 		<>
-			<Hero />
+			<Hero data={data} location={location.hero} />
 			<Word />
 			<Project />
 			<Map />
