@@ -1,6 +1,6 @@
 @use "/src/styles/abstracts" as ab;
 
-.opportunities {
+.opportunities_fallback {
 	--_bg: hsla(214, 88%, 34%, 0.8);
 
 	background-image: url("../../../../public/home/opportunities/opportunities.webp");
@@ -67,5 +67,169 @@
 				width: 17.5rem;
 			}
 		}
+	}
+}
+
+.opportunities {
+	display: grid;
+	gap: 2rem;
+
+	input {
+		clip-path: circle(0);
+		position: absolute;
+
+		right: 100px;
+	}
+
+	.heading {
+		text-align: center;
+	}
+
+	.redirect {
+		font-weight: 700;
+
+		@include ab.opportunity {
+			text-align: end;
+		}
+	}
+
+	.trigger {
+		--_space: clamp(1rem, 3vi, 2.5rem);
+		--_radius: 2rem;
+
+		--_color: var(--accent-primary);
+		--_background: transparent;
+
+		background-color: var(--grey-light);
+		border-radius: var(--_radius);
+
+		display: flex;
+		align-items: center;
+
+		margin-inline: auto;
+
+		label {
+			padding: clamp(0.75rem, 2vi, 1rem) var(--_space);
+			font-size: clamp(0.75rem, 2.25vi, 1.25rem);
+
+			font-weight: 700;
+
+			background-color: var(--_background);
+			color: var(--_color);
+
+			border-radius: var(--_radius);
+
+			&:has(input:checked) {
+				--_background: var(--accent-primary);
+				--_color: var(--white);
+			}
+		}
+	}
+
+	.response {
+		--_time: 4000ms;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+
+		.image {
+			display: none;
+
+			border-radius: 0.75rem;
+			overflow: hidden;
+			img {
+				width: 100%;
+				object-fit: cover;
+				height: 100%;
+			}
+		}
+
+		@include ab.opportunity {
+			grid-template-columns: 1fr 1fr;
+
+			.image {
+				display: block;
+			}
+		}
+
+		.container {
+			display: grid;
+			gap: 3rem;
+
+			align-self: start;
+
+			.items {
+				--_h: 0fr;
+				--_bg: transparent;
+				--_color: var(--grey-title);
+
+				display: grid;
+				gap: 1rem;
+
+				position: relative;
+				padding-inline-start: 1rem;
+
+				&::before {
+					content: "";
+					width: 4px;
+					top: 0;
+					bottom: 0;
+
+					background-color: rgba(128, 128, 128, 0.322);
+					background-image: linear-gradient(var(--_bg), var(--_bg));
+					background-repeat: no-repeat;
+					background-size: 100% 0%;
+
+					position: absolute;
+				}
+
+				&:has(input:checked) {
+					--_h: 1fr;
+					--_bg: var(--accent-secondary);
+					--_color: var(--black);
+
+					&::before {
+						animation: fill-color var(--_time) forwards linear;
+					}
+				}
+
+				.title {
+					color: var(--_color);
+					transition: color 250ms;
+				}
+
+				.details {
+					display: grid;
+					grid-template-rows: var(--_h);
+
+					transition: grid-template-rows 200ms;
+
+					> div {
+						overflow: hidden;
+						display: grid;
+						gap: 1rem;
+					}
+
+					.category {
+						> p {
+							display: inline-block;
+							background-color: var(--grey-light);
+							padding: 0.5rem 1.5rem;
+
+							color: var(--accent-primary);
+
+							border-radius: 5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes fill-color {
+	100% {
+		background-size: 100% 100%;
 	}
 }

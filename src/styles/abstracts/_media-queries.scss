@@ -69,3 +69,9 @@
 		@content;
 	}
 }
+
+@mixin opportunity {
+	@include screen-48 {
+		@content;
+	}
+}
