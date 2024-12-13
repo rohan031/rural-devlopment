@@ -32,7 +32,7 @@ const DifficultiesPage = async () => {
 				</div>
 
 				<div>
-					<ol>
+					<ol type="1">
 						<li>
 							Difficultés antérieures:
 							<ul>
