@@ -166,7 +166,7 @@ export const navBarLinks: NavBarLinks[] = [
 		],
 	},
 	{
-		title: "Nos réalisations",
+		title: "Composantes",
 		active: "/nos-realisations",
 		links: [
 			{

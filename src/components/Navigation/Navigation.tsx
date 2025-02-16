@@ -52,7 +52,7 @@ const NavUpper = () => {
 					<img width={200} height={100} src="/bank.webp" alt="bank" />
 				</div>
 
-				<div className={styles.donate}>
+				{/* <div className={styles.donate}>
 					<a
 						data-type="button"
 						data-variant="primary"
@@ -60,7 +60,7 @@ const NavUpper = () => {
 					>
 						{rootLinks.donate.title}
 					</a>
-				</div>
+				</div> */}
 			</Container>
 		</div>
 	);

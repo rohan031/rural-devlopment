@@ -15,7 +15,7 @@ const links = [
 ];
 
 const data = {
-	heading: "OPPORTUNITÉS",
+	heading: "Actualités",
 };
 
 interface OpportunitiesProps {

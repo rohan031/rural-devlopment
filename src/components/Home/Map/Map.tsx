@@ -13,9 +13,9 @@ const data = {
 const Map = () => {
 	return (
 		<div className={styles.map}>
-			<Container>
+			{/* <Container>
 				<h2 className={`accent ${styles.heading}`}>{data.heading}</h2>
-			</Container>
+			</Container> */}
 
 			<div className={styles.content}>
 				<div className={styles.image}>
