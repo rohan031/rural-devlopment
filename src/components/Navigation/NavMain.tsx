@@ -106,13 +106,19 @@ const NavMain = () => {
 					</label>
 
 					<div>
-						<Link
+						{/* <Link
 							href={rootLinks.donate.link}
 							data-type="button"
 							data-variant="primary"
 						>
 							{rootLinks.donate.title}
-						</Link>
+						</Link> */}
+						<img
+							// width={200}
+							// height={100}
+							src="/logo.webp"
+							alt="logo"
+						/>
 					</div>
 				</div>
 

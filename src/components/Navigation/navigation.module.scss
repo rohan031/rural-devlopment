@@ -121,6 +121,13 @@
 			input {
 				display: none;
 			}
+
+			img {
+				width: auto;
+				height: auto;
+
+				max-width: 15rem;
+			}
 		}
 
 		.content {
@@ -131,7 +138,7 @@
 			position: fixed;
 			inset: 0;
 			overflow: auto;
-   overscroll-behavior: contain;
+			overscroll-behavior: contain;
 
 			padding-block-end: var(--_pb);
 
