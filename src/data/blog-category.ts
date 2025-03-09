@@ -1,5 +1,7 @@
 import { rootLinks } from "./navigation";
 
+export const news = "69589cd5-bbe2-4043-822d-7926eee541b1";
+
 export const categoryMap = {
 	"Appels d'offres": rootLinks.callForTenders,
 	"Appel à Manifestation d’Intérêt (AMI)":

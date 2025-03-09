@@ -1,9 +1,12 @@
+import { title } from "process";
+
 // links which will have dedicated page
 export const rootLinks = {
 	home: {
 		title: "D'accueil",
 		link: "/",
 	},
+
 	projectOverview: {
 		title: "Aperçu du projet",
 		link: "/a-propos/apercu-du-projet",
@@ -79,6 +82,10 @@ export const rootLinks = {
 	annualReports: {
 		title: "Rapports annuels",
 		link: "/publications/rapports-annuels",
+	},
+	news: {
+		title: "Nouvelles",
+		link: "/publications/nouvelles",
 	},
 	contracts: {
 		title: "Contrats",

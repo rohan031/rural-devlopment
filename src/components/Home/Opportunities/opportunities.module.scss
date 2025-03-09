@@ -118,6 +118,7 @@
 			color: var(--_color);
 
 			border-radius: var(--_radius);
+			text-align: center;
 
 			&:has(input:checked) {
 				--_background: var(--accent-primary);
@@ -158,6 +159,20 @@
 			gap: 3rem;
 
 			align-self: start;
+
+			height: 100%;
+
+			.empty {
+				display: grid;
+				justify-content: center;
+				align-items: center;
+
+				min-height: 10rem;
+
+				> * {
+					text-align: center;
+				}
+			}
 
 			.items {
 				--_h: 0fr;

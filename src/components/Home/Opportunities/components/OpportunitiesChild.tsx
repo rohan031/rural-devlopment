@@ -42,11 +42,15 @@ const OpportunitiesChild = ({ blogs }: OpportunitiesChildProps) => {
 	return (
 		<div className={styles.response} id="home-opportunity-response">
 			<div className={styles.container}>
+				{blogs.length === 0 && (
+					<div className={styles.empty}>
+						<h3>No items right now</h3>
+					</div>
+				)}
 				{blogs.map((item, index) => {
 					return (
 						<label key={item.title}>
 							<div className={styles.items}>
-								{/* todo: trim this when on not focused */}
 								<h3 className={styles.title} title={item.title}>
 									{displayTitle(
 										item.title,

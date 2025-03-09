@@ -12,6 +12,7 @@ const links = [
 	rootLinks.callForTenders,
 	// rootLinks.noticeCallForApplications,
 	rootLinks.callForExpressionOfInterest,
+	rootLinks.news,
 ];
 
 const data = {
@@ -20,9 +21,10 @@ const data = {
 
 interface OpportunitiesProps {
 	blogs: Blog[][];
+	categories: string[];
 }
 
-const Opportunities = ({ blogs }: OpportunitiesProps) => {
+const Opportunities = ({ blogs, categories }: OpportunitiesProps) => {
 	const [currentTrigger, setCurrentTrigger] = useState(0);
 
 	if (blogs.length !== links.length) {
@@ -74,7 +76,7 @@ const Opportunities = ({ blogs }: OpportunitiesProps) => {
 			</div>
 
 			<OpportunitiesChild
-				key={blogs[currentTrigger][0].category.id}
+				key={categories[currentTrigger]}
 				blogs={blogs[currentTrigger]}
 			/>
 

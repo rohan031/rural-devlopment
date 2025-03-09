@@ -4,7 +4,7 @@ import Opportunities from "@/components/Home/Opportunities/Opportunities";
 import Project from "@/components/Home/Project/Project";
 import Video from "@/components/Home/Video/Video";
 import Word from "@/components/Home/Word/Word";
-import { Blog, categoryIdMap } from "@/data/blog-category";
+import { Blog, categoryIdMap, news } from "@/data/blog-category";
 import { location } from "@/data/helper";
 import React from "react";
 
@@ -38,6 +38,7 @@ const limit = 3;
 const categories = [
 	categoryIdMap["Appels d'offres"],
 	categoryIdMap["Appel à Manifestation d’Intérêt (AMI)"],
+	news,
 ];
 
 const Home = async () => {
@@ -76,7 +77,7 @@ const Home = async () => {
 			<Project />
 			<Map />
 
-			<Opportunities blogs={blogs} />
+			<Opportunities blogs={blogs} categories={categories} />
 			<Video />
 		</>
 	);
