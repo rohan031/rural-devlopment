@@ -9,10 +9,9 @@ import { Blog } from "@/data/blog-category";
 import OpportunitiesChild from "./components/OpportunitiesChild";
 
 const links = [
-	rootLinks.callForTenders,
-	// rootLinks.noticeCallForApplications,
-	rootLinks.callForExpressionOfInterest,
 	rootLinks.news,
+	rootLinks.callForExpressionOfInterest,
+	rootLinks.callForTenders,
 ];
 
 const data = {

@@ -36,9 +36,9 @@ const data = [
 const limit = 3;
 
 const categories = [
-	categoryIdMap["Appels d'offres"],
-	categoryIdMap["Appel à Manifestation d’Intérêt (AMI)"],
 	news,
+	categoryIdMap["Appel à Manifestation d’Intérêt (AMI)"],
+	categoryIdMap["Appels d'offres"],
 ];
 
 const Home = async () => {
