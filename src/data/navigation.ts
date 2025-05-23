@@ -135,6 +135,10 @@ export const rootLinks = {
 		title: "Faites un don aujourd'hui",
 		link: "/faire-un-don",
 	},
+	infrastructureDevelopment: {
+		title: "Développement des infrastructures",
+		link: "/developpement-des-infrastructures",
+	},
 };
 
 export type NavBarLinks = {
@@ -176,13 +180,7 @@ export const navBarLinks: NavBarLinks[] = [
 		title: "Composantes",
 		active: "/nos-realisations",
 		links: [
-			{
-				title: "Développement des infrastructres",
-				links: [
-					rootLinks.infrastructureDevelopmentPhase1,
-					rootLinks.infrastructureDevelopmentPhase2,
-				],
-			},
+			rootLinks.infrastructureDevelopment,
 			rootLinks.studiesAndCapacityBuilding,
 			rootLinks.projectCoordinationAndManagement,
 		],
@@ -192,15 +190,8 @@ export const navBarLinks: NavBarLinks[] = [
 		active: "/publications",
 		links: [
 			rootLinks.annualReports,
-			{
-				...rootLinks.contracts,
-				links: [
-					rootLinks.contractsForGoods,
-					rootLinks.serviceContracts,
-					rootLinks.worksContracts,
-				],
-			},
-			// rootLinks.quarterlyProgressReports,
+			rootLinks.contracts,
+			rootLinks.quarterlyProgressReports,
 			rootLinks.difficulties,
 		],
 	},
