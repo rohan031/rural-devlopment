@@ -1,5 +1,12 @@
-.contractsPage {
+.opportunitiesPage {
   padding: 2rem 0;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+    text-align: center;
+  }
 }
 
 .phaseSections {
@@ -18,13 +25,13 @@
   }
 }
 
-.contractGrid {
+.opportunityGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.contractCard {
+.opportunityCard {
   background: white;
   border-radius: 8px;
   padding: 1.5rem;

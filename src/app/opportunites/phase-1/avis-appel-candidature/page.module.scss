@@ -1,0 +1,79 @@
+.opportunityPage {
+  padding: 2rem 0;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #2d3748;
+    text-align: center;
+  }
+}
+
+.opportunities {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.opportunityCard {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &.ouvert {
+    background-color: #C6F6D5;
+    color: #2F855A;
+  }
+
+  &.fermé {
+    background-color: #FED7D7;
+    color: #C53030;
+  }
+}
+
+.deadline {
+  font-size: 0.9rem;
+  color: #4a5568;
+} 

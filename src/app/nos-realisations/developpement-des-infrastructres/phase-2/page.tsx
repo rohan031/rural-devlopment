@@ -1,91 +1,79 @@
-import Container from "@/components/Container/Container";
-import Hero from "@/components/Hero/Hero";
-import { rootLinks } from "@/data/navigation";
-import React from "react";
-import { LIMIT, PageInfo } from "@/data/helper";
-import AlbumItem from "../components/album-list/AlbumItem";
-import AlbumList from "../components/album-list/AlbumList";
-import { Album } from "../phase-1/page";
+import React from 'react';
+import Container from '@/components/Container/Container';
+import AchievementList from '@/components/Achievements/AchievementList';
 
-export const revalidate = 60 * 60;
+const Phase2Page = () => {
+  const achievements = [
+    {
+      title: "Réhabilitations dans la cité de Luekeshi",
+      description: "Réhabilitations de l'EP BENA NGANZA, construction du centres de santé de LUEKESHI, aménagement des 2 Latrines publiques à l'EP MBINGA à Luekeshi ainsi que la construction du marché de LUEKESHI et la fourniture des mobiliers scolaires à l'EP Bena Nganza dans la cité de Luekeshi, territoire de Dibaya",
+      imageUrl: "/images/phase2/luekeshi.jpg"
+    },
+    {
+      title: "Développement à Kalambambuji",
+      description: "Réhabilitations de l'EP WITU, construction du centres de santé de KALAMBA MBUJI, et aménagement des 02 latrines publique de l'EP MUKUANDANGA ainsi que la construction du marché de Kalambambuji et la fourniture des mobiliers scolaires à l'EP Witu dans le site de Kalambambuji, territoire de Luiza",
+      imageUrl: "/images/phase2/kalambambuji.jpg"
+    },
+    {
+      title: "Infrastructures à DIFUMA II",
+      description: "Réhabilitations d'un bâtiment Scolaires, un centres de santé, et aménagement des 04 latrines publiques ainsi que la construction des places à vivre (Marches) et la fourniture des mobiliers scolaires dans la province de Maniema au cité de DIFUMA II",
+      imageUrl: "/images/phase2/difuma.jpg"
+    }
+  ];
 
-const PhaseIPage = async () => {
-	const url = `${process.env.NEXT_PUBLIC_API}/services/gallery/albums`;
+  return (
+    <>
+      {/* Blue Header Section with Background Image */}
+      <div style={{
+        backgroundImage: 'url(/images/cover.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '25vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        width: '100%',
+        margin: 0,
+        padding: '2rem 0',
+        position: 'relative'
+      }}>
+        {/* Blue overlay to match PRISE reference */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.9) 100%)',
+          zIndex: 1
+        }}></div>
+        
+        <h1 style={{
+          fontSize: '2.5rem',
+          color: 'white',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          margin: 0,
+          textTransform: 'uppercase',
+          letterSpacing: '1px',
+          position: 'relative',
+          zIndex: 2,
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+        }}>
+          PHASE II
+        </h1>
+      </div>
 
-	let pageInfo: PageInfo = {
-		nextPage: false,
-		cursor: "",
-	};
-	const albums: Album[] | null = await fetch(url, {
-		method: "GET",
-		headers: {
-			Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_PHASE_II}`,
-		},
-	})
-		.then((res) => res.json())
-		.then((res) => {
-			if (res.error) throw new Error(res.message);
-			pageInfo = res.data.pageInfo;
-			return res.data.albums;
-		})
-		.catch((err) => {
-			console.error(err.message);
-			return null;
-		});
-
-	if (!albums) {
-		return (
-			<>
-				<Hero
-					heading={rootLinks.infrastructureDevelopmentPhase2.title}
-				/>
-
-				<Container
-					style={{
-						height: "20rem",
-						display: "grid",
-						placeItems: "center",
-					}}
-				>
-					<h4>Oops! Something went wrong.</h4>
-				</Container>
-			</>
-		);
-	}
-
-	if (albums.length === 0) {
-		return (
-			<>
-				<Hero
-					heading={rootLinks.infrastructureDevelopmentPhase2.title}
-				/>
-
-				<Container
-					style={{
-						height: "20rem",
-						display: "grid",
-						placeItems: "center",
-					}}
-				>
-					<h4>There are no albums at Phase II</h4>
-				</Container>
-			</>
-		);
-	}
-
-	return (
-		<>
-			<Hero heading={rootLinks.infrastructureDevelopmentPhase2.title} />
-
-			<AlbumList phase2={true} url={url} pageInfo={pageInfo}>
-				{albums.map((item) => {
-					return (
-						<AlbumItem phase2={true} key={item.id} details={item} />
-					);
-				})}
-			</AlbumList>
-		</>
-	);
+      <Container>
+        <AchievementList 
+          phase=""
+          achievements={achievements}
+        />
+      </Container>
+    </>
+  );
 };
 
-export default PhaseIPage;
+export default Phase2Page; 

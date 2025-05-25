@@ -63,6 +63,10 @@ export const rootLinks = {
 		title: "Maniema",
 		link: "/repertoire-ouvrages/maniema",
 	},
+	infrastructureDevelopment: {
+		title: "Développement des infrastructures",
+		link: "/nos-realisations/developpement-des-infrastructres",
+	},
 	infrastructureDevelopmentPhase1: {
 		title: "Phase I",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
@@ -91,17 +95,37 @@ export const rootLinks = {
 		title: "Contrats",
 		link: "/publications/contrats",
 	},
-	contractsForGoods: {
+	contractsPhase1: {
+		title: "PRISE Phase I",
+		link: "/publications/contrats/phase-1",
+	},
+	contractsPhase2: {
+		title: "PRISE Phase II",
+		link: "/publications/contrats/phase-2",
+	},
+	contractsForGoodsPhase1: {
 		title: "Contrat des biens",
-		link: "/publications/contrats/contrat-des-biens",
+		link: "/publications/contrats/phase-1/biens",
 	},
-	serviceContracts: {
+	serviceContractsPhase1: {
 		title: "Contrat des services",
-		link: "/publications/contrats/contrat-des-services",
+		link: "/publications/contrats/phase-1/services",
 	},
-	worksContracts: {
+	worksContractsPhase1: {
 		title: "Contrat de travaux",
-		link: "/publications/contrats/contrat-de-travaux",
+		link: "/publications/contrats/phase-1/travaux",
+	},
+	contractsForGoodsPhase2: {
+		title: "Contrat des biens",
+		link: "/publications/contrats/phase-2/biens",
+	},
+	serviceContractsPhase2: {
+		title: "Contrat des services",
+		link: "/publications/contrats/phase-2/services",
+	},
+	worksContractsPhase2: {
+		title: "Contrat de travaux",
+		link: "/publications/contrats/phase-2/travaux",
 	},
 	quarterlyProgressReports: {
 		title: "Rapports d'avancement trismestriels",
@@ -135,9 +159,13 @@ export const rootLinks = {
 		title: "Faites un don aujourd'hui",
 		link: "/faire-un-don",
 	},
-	infrastructureDevelopment: {
-		title: "Développement des infrastructures",
-		link: "/developpement-des-infrastructures",
+	opportunitiesPhase1: {
+		title: "PRISE Phase I",
+		link: "/opportunites/phase-1",
+	},
+	opportunitiesPhase2: {
+		title: "PRISE Phase II",
+		link: "/opportunites/phase-2",
 	},
 };
 
@@ -199,9 +227,8 @@ export const navBarLinks: NavBarLinks[] = [
 		title: "Opportunites",
 		active: "/opportunites",
 		links: [
-			rootLinks.callForTenders,
-			// rootLinks.noticeCallForApplications,
-			rootLinks.callForExpressionOfInterest,
+			rootLinks.opportunitiesPhase1,
+			rootLinks.opportunitiesPhase2,
 		],
 	},
 	rootLinks.theMinistry,

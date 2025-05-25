@@ -18,10 +18,12 @@ interface ContractListProps {
 const ContractList: React.FC<ContractListProps> = ({ contracts, phase, type }) => {
   return (
     <div className={styles.contractList}>
-      <div className={styles.header}>
-        <h1>{type}</h1>
-        <p className={styles.phase}>{phase}</p>
-      </div>
+      {(phase || type) && (
+        <div className={styles.header}>
+          {type && <h1>{type}</h1>}
+          {phase && <p className={styles.phase}>{phase}</p>}
+        </div>
+      )}
       
       <div className={styles.contracts}>
         {contracts.map((contract, index) => (
