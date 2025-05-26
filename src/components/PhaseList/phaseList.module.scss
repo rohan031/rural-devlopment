@@ -1,0 +1,8 @@
+@use "/src/styles/abstracts" as ab;
+
+.container {
+	display: grid;
+	gap: 2rem;
+
+	grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}

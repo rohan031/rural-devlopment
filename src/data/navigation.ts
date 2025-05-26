@@ -63,6 +63,10 @@ export const rootLinks = {
 		title: "Maniema",
 		link: "/repertoire-ouvrages/maniema",
 	},
+	infrastructureDevelopment: {
+		title: "Développement des infrastructres",
+		link: "/nos-realisations/developpement-des-infrastructres",
+	},
 	infrastructureDevelopmentPhase1: {
 		title: "Phase I",
 		link: "/nos-realisations/developpement-des-infrastructres/phase-1",
@@ -177,7 +181,8 @@ export const navBarLinks: NavBarLinks[] = [
 		active: "/nos-realisations",
 		links: [
 			{
-				title: "Développement des infrastructres",
+				...rootLinks.infrastructureDevelopment,
+				// title: "Développement des infrastructres",
 				links: [
 					rootLinks.infrastructureDevelopmentPhase1,
 					rootLinks.infrastructureDevelopmentPhase2,
