@@ -11,9 +11,11 @@ interface AlbumItemProps {
 }
 
 const AlbumItem = ({ details, phase2 = false }: AlbumItemProps) => {
-	let href = `${galleryAlbum}/${details.id}`;
+	let href;
 	if (phase2) {
 		href = `${galleryAlbum}/phase-2/${details.id}`;
+	} else {
+		href = `${galleryAlbum}/phase-1/${details.id}`;
 	}
 
 	let title = details.name;

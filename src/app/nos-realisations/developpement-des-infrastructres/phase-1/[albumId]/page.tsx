@@ -2,8 +2,8 @@ import Hero from "@/components/Hero/Hero";
 import React from "react";
 import Container from "@/components/Container/Container";
 import { LIMIT, PageInfo } from "@/data/helper";
-import ImageList from "../components/images/ImageList";
-import { Album } from "../phase-1/page";
+import ImageList from "../../components/images/ImageList";
+import { Album } from "../page";
 
 export const revalidate = 60 * 60;
 

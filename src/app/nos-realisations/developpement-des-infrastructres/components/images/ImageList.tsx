@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import { Photos } from "../../[albumId]/page";
+import { Photos } from "../../phase-1/[albumId]/page";
 import Container from "@/components/Container/Container";
 import styles from "./imageList.module.scss";
 import Loader from "@/components/Loader/Loader";
