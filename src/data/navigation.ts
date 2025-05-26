@@ -183,10 +183,10 @@ export const navBarLinks: NavBarLinks[] = [
 			{
 				...rootLinks.infrastructureDevelopment,
 				// title: "Développement des infrastructres",
-				links: [
-					rootLinks.infrastructureDevelopmentPhase1,
-					rootLinks.infrastructureDevelopmentPhase2,
-				],
+				// links: [
+				// 	rootLinks.infrastructureDevelopmentPhase1,
+				// 	rootLinks.infrastructureDevelopmentPhase2,
+				// ],
 			},
 			rootLinks.studiesAndCapacityBuilding,
 			rootLinks.projectCoordinationAndManagement,

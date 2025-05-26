@@ -37,7 +37,8 @@ const NavMain = () => {
 					<Link
 						href={link}
 						data-type="link"
-						data-active={link === pathname}
+						// data-active={link === pathname}
+						data-active={pathname.includes(link)}
 						data-level={level}
 						onClick={handleClick}
 					>
