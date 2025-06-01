@@ -4,6 +4,7 @@ import Container from "@/components/Container/Container";
 import Hero from "@/components/Hero/Hero";
 import { Blog, categoryIdMap, categoryMap, news } from "@/data/blog-category";
 import { LIMIT, PageInfo } from "@/data/helper";
+import { Phase } from "@/data/phases";
 import React from "react";
 
 export const revalidate = 60 * 60;
@@ -74,10 +75,14 @@ const ContratsPage = async () => {
 		<>
 			<Hero heading={"Nouvelles"} />
 
-			<BlogList pageInfo={pageInfo} url={url}>
+			<BlogList pageInfo={pageInfo} url={url} phase={Phase.ONE}>
 				{blogs.map((item) => {
 					return (
-						<ListItem key={item.blogId} details={item}></ListItem>
+						<ListItem
+							key={item.blogId}
+							details={item}
+							phase={Phase.TWO}
+						></ListItem>
 					);
 				})}
 			</BlogList>
