@@ -95,17 +95,49 @@ export const rootLinks = {
 		title: "Contrats",
 		link: "/publications/contrats",
 	},
+	contractsPhase1: {
+		title: "Phase I",
+		link: "/publications/contrats/phase-1",
+	},
+	contractsPhase2: {
+		title: "Phase II",
+		link: "/publications/contrats/phase-2",
+	},
 	contractsForGoods: {
 		title: "Contrat des biens",
 		link: "/publications/contrats/contrat-des-biens",
+	},
+	contractsForGoodsPhase1: {
+		title: "Phase I",
+		link: "/publications/contrats/contrat-des-biens/phase-1",
+	},
+	contractsForGoodsPhase2: {
+		title: "Phase II",
+		link: "/publications/contrats/contrat-des-biens/phase-2",
 	},
 	serviceContracts: {
 		title: "Contrat des services",
 		link: "/publications/contrats/contrat-des-services",
 	},
+	serviceContractsPhase1: {
+		title: "Phase I",
+		link: "/publications/contrats/contrat-des-services/phase-1",
+	},
+	serviceContractsPhase2: {
+		title: "Phase II",
+		link: "/publications/contrats/contrat-des-services/phase-2",
+	},
 	worksContracts: {
 		title: "Contrat de travaux",
 		link: "/publications/contrats/contrat-de-travaux",
+	},
+	worksContractsPhase1: {
+		title: "Phase I",
+		link: "/publications/contrats/contrat-de-travaux/phase-1",
+	},
+	worksContractsPhase2: {
+		title: "Phase II",
+		link: "/publications/contrats/contrat-de-travaux/phase-2",
 	},
 	quarterlyProgressReports: {
 		title: "Rapports d'avancement trismestriels",
@@ -119,6 +151,14 @@ export const rootLinks = {
 		title: "Appels d'offres",
 		link: "/opportunites/appels-d-offres",
 	},
+	callForTendersPhase1: {
+		title: "Phase I",
+		link: "/opportunites/appels-d-offres/phase-1",
+	},
+	callForTendersPhase2: {
+		title: "Phase II",
+		link: "/opportunites/appels-d-offres/phase-2",
+	},
 	noticeCallForApplications: {
 		title: "Avis appel candidature",
 		link: "/opportunites/avis-appel-candidature",
@@ -126,6 +166,14 @@ export const rootLinks = {
 	callForExpressionOfInterest: {
 		title: "Appel a manifestation d'intérêt",
 		link: "/opportunites/appel-a-manifestation-d-interet",
+	},
+	callForExpressionOfInterestPhase1: {
+		title: "Phase I",
+		link: "/opportunites/appel-a-manifestation-d-interet/phase-1",
+	},
+	callForExpressionOfInterestPhase2: {
+		title: "Phase II",
+		link: "/opportunites/appel-a-manifestation-d-interet/phase-2",
 	},
 	theMinistry: {
 		title: "Le ministère",

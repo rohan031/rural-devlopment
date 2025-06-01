@@ -8,14 +8,16 @@ import { useIntersection } from "@/hooks/intersetion-observer/intersection-obser
 import ListItem from "./ListItem";
 import { LIMIT, PageInfo } from "@/data/helper";
 import Loader from "../Loader/Loader";
+import { Phase } from "@/data/phases";
 
 interface BlogListProps {
 	children: React.ReactNode;
 	url: string;
 	pageInfo: PageInfo;
+	phase: Phase;
 }
 
-const BlogList = ({ children, pageInfo, url }: BlogListProps) => {
+const BlogList = ({ children, pageInfo, url, phase }: BlogListProps) => {
 	const [moreBlogs, setMoreblogs] = useState<Blog[]>([]);
 	const pageInfoRef = useRef<PageInfo>(pageInfo);
 
@@ -82,6 +84,7 @@ const BlogList = ({ children, pageInfo, url }: BlogListProps) => {
 							<ListItem
 								key={item.blogId}
 								details={item}
+								phase={phase}
 							></ListItem>
 						);
 					})}

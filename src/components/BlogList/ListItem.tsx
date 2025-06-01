@@ -3,14 +3,21 @@ import styles from "./blogList.module.scss";
 import { Blog } from "@/data/blog-category";
 import Link from "next/link";
 import { displayTitle } from "@/data/helper";
+import { Phase } from "@/data/phases";
 
 interface ListItemProps {
 	details: Blog;
+	phase: Phase;
 }
 
-const ListItem = ({ details }: ListItemProps) => {
+const ListItem = ({ details, phase }: ListItemProps) => {
 	const date = new Date(details.createdAt);
-	const href = `/publications/${details.blogId}`;
+	let href;
+	if (phase === Phase.ONE) {
+		href = `/publications/phase-1/${details.blogId}`;
+	} else {
+		href = `/publications/phase-2/${details.blogId}`;
+	}
 
 	const hasCover = details.cover.length > 0;
 
