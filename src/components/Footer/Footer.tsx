@@ -1,8 +1,26 @@
+"use client";
+
 import React from "react";
 import styles from "./footer.module.scss";
 import Container from "../Container/Container";
-import { footer, phone, email, address } from "@/data/navigation";
+import { footer, phone, email, address, socialMedia } from "@/data/navigation";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const getSocialClassName = (title: string) => {
+	switch (title) {
+		case "Facebook":
+			return styles.facebook;
+		case "Instagram":
+			return styles.instagram;
+		case "Linkedin":
+			return styles.linkedin;
+		case "TikTok":
+			return styles.tiktok;
+		default:
+			return styles.default;
+	}
+};
 
 const Footer = () => {
 	const today = new Date();
@@ -80,6 +98,25 @@ const Footer = () => {
 							);
 						})}
 					</div>
+				</div>
+			</Container>
+
+			<Container className={styles.socialContainer}>
+				<h3>Connect With Us</h3>
+
+				<div className={styles.social}>
+					{socialMedia.map((item) => {
+						return (
+							<a
+								key={item.link}
+								href={item.link}
+								target="_blank"
+								className={getSocialClassName(item.title)}
+							>
+								<FontAwesomeIcon icon={item.icon} />
+							</a>
+						);
+					})}
 				</div>
 			</Container>
 

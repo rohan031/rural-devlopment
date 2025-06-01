@@ -102,4 +102,80 @@
 			}
 		}
 	}
+
+	.socialContainer {
+		display: grid;
+		gap: 1rem;
+
+		justify-content: center;
+
+		h3 {
+			text-align: center;
+		}
+
+		.social {
+			display: flex;
+			gap: 1.25em;
+			justify-content: start;
+
+			a {
+				--_color: var(--text);
+				--_bg: var(--white);
+
+				font-size: 1.15rem;
+
+				background: var(--_bg);
+				aspect-ratio: 1;
+				width: 1.75em;
+				border-radius: 50%;
+
+				color: var(--_color);
+
+				display: grid;
+				place-items: center;
+
+				transition: color 300ms, background-color 300ms;
+
+				&:hover {
+					--_color: var(--white);
+
+					&.instagram {
+						--_bg: var(--instagram);
+					}
+
+					&.tiktok {
+						--_bg: #111;
+
+						filter: drop-shadow(2px 0px 0px #fd3e3e)
+							drop-shadow(-2px -2px 0px #4de8f4);
+					}
+
+					&.facebook {
+						--_bg: var(--facebook);
+					}
+
+					&.twitter {
+						--_bg: var(--twitterx);
+					}
+
+					&.whatsapp {
+						--_bg: var(--whatsapp);
+					}
+
+					&.reddit {
+						--_bg: #ffeaea;
+						--_color: var(--reddit);
+					}
+
+					&.linkedin {
+						--_bg: var(--linkedin);
+					}
+
+					&.default {
+						--_bg: var(--accent-secondary);
+					}
+				}
+			}
+		}
+	}
 }

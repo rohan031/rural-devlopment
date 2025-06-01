@@ -1,3 +1,10 @@
+import {
+	faFacebookF,
+	faInstagram,
+	faLinkedin,
+	faLinkedinIn,
+	faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 import { title } from "process";
 
 // links which will have dedicated page
@@ -287,3 +294,26 @@ export const address =
 	"Avenue Lukusa, n°111-112, croisement des avenues TSF et Lukusa,dans l'enceinte du secrétariat Général au Développement Rural";
 export const galleryAlbum =
 	"/nos-realisations/developpement-des-infrastructres";
+
+export const socialMedia = [
+	{
+		title: "Facebook",
+		link: "https://www.facebook.com/ProjetPRISE",
+		icon: faFacebookF,
+	},
+	{
+		title: "Instagram",
+		link: "https://www.instagram.com/projetprise2/",
+		icon: faInstagram,
+	},
+	{
+		title: "Linkedin",
+		link: "https://www.linkedin.com/company/projet-prise",
+		icon: faLinkedinIn,
+	},
+	{
+		title: "TikTok",
+		link: "https://www.tiktok.com/@projet_prise",
+		icon: faTiktok,
+	},
+];
